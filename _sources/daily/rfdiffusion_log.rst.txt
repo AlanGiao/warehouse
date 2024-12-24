@@ -1,0 +1,25 @@
+######################
+RFdiffusion 工作日志
+######################
+
+date: 2024-12-17
+
+ab-RFdiffusion 和 vanilla RFdiffusion 输入特征的不同点
+    ``xyz_t``: 也即 px0_prev 存放的变量. ab 版本只用前三个原子, 也即 ``xyz_t[:, :, :, :3, :]``.
+
+date: 2024-12-18
+
+Baker 设计的抗体所针对的抗原 (用 '#' 分割字段; 从左到右字段依次为 Target, PDB Code, Hotspot residues):
+
+    #. HIV Env # 2NY7 # A371, A375, A435, A475
+    #. SARS-CoV-2 RBD # 6M0J # B492, B493, B494, B495, B496, B497
+    #. RSV-F Site I # 7LVW # D469, D384
+    #. RSV-F Site III # 7LUC # T305, T456
+    #. Influenza Hemagglutinin # 5VLI # B146, B170, B177
+    #. TcdB # 6C0B # A1433, A1488, A1493
+    #. IL-7 Receptor α # 3DI3 # B81, B139, B192
+
+设计 CDR 所依赖的人源化纳米抗体骨架: h-NbBcII10 :sub:`FGLA` [ref1]_, PDB ID 为 ``3EAK``. h-NbBcII10 (PDB ID ``3DWT``) 是原始的骆驼纳米抗体, 属于 subfamily-2 - 7 种 VHH subfamily 中最常遇见的一种. [ref1]_ 将其人源化后命名为 h-NbBcII10 :sub:`FGLA`. 这个抗体现在用的人应该比较多, 截至当前 (2024-12-18) [ref1]_ 在 ScienceDirect 上已经有 435 个引用了.
+
+
+.. [ref1] General strategy to humanize a camelid single-domain antibody and identification of a universal humanized nanobody scaffold. URL: https://pubmed.ncbi.nlm.nih.gov/19010777/

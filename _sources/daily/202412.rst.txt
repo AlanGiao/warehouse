@@ -1,0 +1,234 @@
+################################
+2024 年 12 月 - 日知录
+################################
+
+.. contents:: 目录
+
+Python 类: 覆盖, 重载, 多态, 封装
+####################################
+
+Python 默认不支持 class overload, 但是有办法实现 overload.
+
+覆盖 (override): 在子类中重新定义父类的方法, 以实现不同的行为. 注意:
+
+#. 覆盖方法的参数列表必须与父类方法完全相同.
+
+#. 覆盖方法的返回值类型必须与父类方法完全相同.
+
+#. 不能降低覆盖方法的访问权限, 如果父类方法是public, 子类方法也必须是public.
+
+#. 可以用 ``final`` 修饰父类方法, 被修饰的父类方法将不能被子类覆盖.
+
+重载 (overload): 在同一个类中定义多个同名方法, 但参数列表不同. 注意不能出现方法名和参数列表均相同, 但返回值类型不同的情况 (此时python不知道调用哪个方法)
+
+多态: 当子类和父类存在相同的方法时, 子类方法会覆盖父类方法. 这就是多态.
+
+
+Python Debugger
+##################
+
+#. 在 debugger 环境中设置断点: ``b``.
+
+#. 执行下一步 (如果下一步是函数, 那么会进入函数并停止): ``s(tep)``
+
+#. 执行下一步 (如果下一步是函数调用, 那么会直接运行完整个函数): ``n(ext)``
+
+#. 执行指定行: ``j(ump)``. 只能在调用栈的最顶部用.
+
+#. 打印当前函数的参数及值: ``a(rgs)``.
+
+#. ``debug``: 在当前 debugger shell 下打开一个子 debugger, 并debug 后面跟的脚本.
+
+
+Emacs 用法
+##########
+
+是否使用真实 TAB 缩进:
+    ``indent-tabs-mode``
+
+一个 TAB 的宽度:
+    ``setq-default tab-width 4``
+
+
+
+
+Docutils 用法
+################
+
+索引页面: https://docutils.sourceforge.io/docs/index.html
+
+DocUtils 用法简介: https://docutils.sourceforge.io/README.html#quick-start
+
+完整用法: https://docutils.sourceforge.io/docs/user/tools.html
+
+RST 用法官方文档
+#################
+
+https://docutils.sourceforge.io/rst.html
+
+quick ref: https://docutils.sourceforge.io/docs/user/rst/quickref.html
+
+Docutils 命令汇总: https://docutils.sourceforge.io/docs/ref/rst/directives.html
+
+命令 (directives) 是形如 ``.. directive::`` 的单行字符; 其与其他文本行以一个及以上的空行分隔. 常用的 directive 列举如下.
+
+``.. contents:: [<Some Text>]``: 生成目录.
+
+Docutils 参数汇总: https://docutils.sourceforge.io/docs/user/config.html. 常用参数如下:
+
+--toc-entry-backlinks   Link from section headers to TOC entries.  (default)
+
+--toc-top-backlinks     Link from section headers to the top of the TOC.
+
+--no-toc-backlinks      Disable backlinks to the table of contents.
+
+
+决定输出到什么文件: 
+
+--writer    One of ["html", "html4", "html5", "latex", "xelatex", "odt", "xml", "pseudoxml", "manpage", "pep_html", "s5"]
+
+
+RST to markdown 转换
+************************
+    
+
+
+
+科研
+######
+
+
+生物物理相关的好网页
+********************
+
+BLAST 官方给出的术语表. 里面有很多常见的术语. https://www.ncbi.nlm.nih.gov/books/NBK62051/
+
+
+生物物理术语表
+***************
+
+LDDT
+=====
+
+参考了一篇 2013 年的论文: `lDDT: a local superposition-free score for comparing protein structures and models using distance difference tests <https://academic.oup.com/bioinformatics/article/29/21/2722/195896>`_.
+
+动机: 蛋白结构预测技术需要一个客观的标准来评价其预测模型和真实结构的相似程度. 但基于对齐 (superposition) alpha 碳原子的方法会被 domain 移动强烈影响, 且不能评估局部原子级别的精确性.
+
+计算方法: 
+
+纳米抗体
+=========
+
+又称 single-domain antibody (sdAb), 是仅包含一个 domain - variable domain - 的抗体片段. 
+
+第一个 sdAb 是在骆驼科动物的 heavy-chain antibody 上通过生物工程获得的, 称作 VHH fragment. 鲨鱼科动物也有一种名为 IgNAR (Immunoglobin New Antigen Receptor) 的 heavy-chain antibody, 以它为原料获得的 sdAb 叫做 VNAR fragment. 
+
+纳米抗体和人抗体重链 variable domain 有约 10 个氨基酸的不同: 
+    
+#. 在 framework-2 region (第二个 framework region) 有 4 个标志性的纳米抗体特有的氨基酸, 位于纳米抗体的位点 42, 49, 50, 52;
+        
+#. 更长的 CDR H3 loop 长度.
+
+VHH 的 人源化 (hummanize)
+==========================
+
+
+将骆驼身上的抗体的 framework region 的氨基酸序列突变成类似人体的 framework region 序列.
+
+
+抗体的组成
+============
+
+抗体由两条全同的重链和两条全同的轻链构成. 每条链又分为多个 domain, 每个 domain 可能又分为不同的 region. 每个重链都会和一个轻链通过二硫键配对; 两个重链-轻链对再通过重链间形成二硫键形成一个 "Y" 形结构. 
+
+重链包含 VH1, CH1, CH2, CH3 四个 domain. 第一个字母 V/H 表示 variable/constant (可变/恒定), 第二个字母表示这是重链 (Heavy chain), 第三个数字就是编号.
+
+轻链包含 VL, CL 两个 domain. 由于 Varialb 和 Constant 只有一个, 所以后面不带编号.
+
+抗体的 Fab
+================
+
+Antigen-binding fragment 的缩写. 由四个 domain 构成, 分别是: VH, VL, CH1, CL1; 即重链和轻链各自贡献一组 constant 和 variable domain. 通过前面的定义可以看出 Fab 就是 "Y" 的两个分支中的一个.
+
+抗体的 Antigen-binding site (抗原结合位点)
+==========================================
+
+又称 paratope, 负责识别和结合抗原, 位于抗体 "Y" 形结构的分叉末端. 每个抗体都有 2 个 paratope, "Y" 形的每一端都有一个. 一个 antigen-binding site 包含 6 个 CDR, 三个来自重链, 三个来自轻链. 综上所述, paratope 就是 "Y" 的尖端部分.
+
+
+抗体的 Fv
+=============
+
+Varialbe fragment 的缩写, 其实一个 Fv 就是抗体的一个 variable domain, 所以我认为 Fv 就是 variable domain 的别名.
+
+Fv 的组成: 由三个 CDR 区域 (又称 hypervariable region) 和 4 个 framework region (简称 FR) 组成. 顺序为 FR1, CDR1, FR2, CDR2, FR3, CDR3, FR4. FR 不易突变, CDR 十分容易突变.
+
+scFV
+===========
+
+single-chain Fv. 是一种单链人工合成抗体, 通过将 VH 和 VL 通过生物工程融合成一条链得来.
+    
+
+
+
+Jensen-shannon divergence
+#########################
+
+
+Word list
+#########
+
+paucimannose: Paucimannose (少甘露糖) 是一种无脊椎动物和植物中常见的甘露糖苷 N-糖表位。 Paucimannose 聚糖在癌症中表达。mannose 是甘露糖. 甘露糖（Mannose）是一种单糖，也是一种六碳糖。在自然界中较少单独存在，多以群体的大分子形式出现。其甜度比蔗糖低，可作为糖尿病患者的代糖使用
+
+glycosylate
+    糖基化.
+
+glycosyl
+    糖基.
+
+glycol: 乙二醇.
+
+glycogen: 糖原.
+
+glycine: 甘氨酸.
+
+glucose: 葡萄糖.
+
+clostridium: 梭菌, 是细菌的一个纲.
+
+reagent: [c.] 试剂.
+
+amendable: [adj.], amend 的形容词形式.
+
+amend: [v.] 修正, 订正. (make minor changes to something (like text, piece of legislation) to make it more fair or more accurate).
+
+promply: [adv.] 讯速地.
+
+prompt: 除了常见的动词用法 "鼓励/提词/催促" 外, 还有形容词 "准时/迅速" 的含义.
+
+disclaimer: [n.] 免责声明.
+
+specifric: [adj.] 具体的; 特有的; 有特效的; (物理) 成比率的;
+
+hallmark [adj.] 标志.
+
+dromedary [n.] 单峰骆驼.
+
+identity [n.] 身份; 特性; 恒等式. *Subsequently, we substituted the remaining “non-human” residues in the framework and resurfaced NbBcII10 to obtain a humanized Nanobody scaffold (h-NbBcII10FGLA) so as to exhibit the closest possible amino acid identity to a human VH (Fig. 1).*
+
+retention: [v.] 保留, 保持; 潴留.
+
+
+SumatraPDF reader 的高级配置
+###############################
+
+文档: https://www.sumatrapdfreader.org/settings/settings3-5-1
+
+
+
+
+其他
+#####
+
+Latex to html conversion: ``htlatex``. 一般来说已经包括在 full-scheme 的 TeX Live 发行版中了.
+

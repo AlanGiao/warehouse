@@ -1,0 +1,24 @@
+###################
+git 用法教程
+###################
+
+在本地和服务器间进行传输
+=========================
+
+#. 首先建立裸仓库: ``git init --bare test.git``
+
+#. 然后建立本地仓库: ``mkdir my_repo; cd my_repo; git init``
+
+#. 在本地仓库建立一个文件, 然后提交::
+
+    git add .
+    git commit -m "first commit"
+
+#. 然后将本地仓库推送到服务器上::
+
+    git remote add server UserName@ServerIP:/path/to/test.git
+    git push -u server master
+
+   注意, 这里 push 的是本地的 master branch, 所以要确保服务器上仓库的 HEAD 的第一行也包含 master; 否则就需要重命名本地仓库的名字以和服务器上的主分支保持一致.
+
+如果需要在 push 到服务器后, push 的文件自动出现在某个目录, 可以使用 git 的 hook 功能: 
