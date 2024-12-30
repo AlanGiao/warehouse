@@ -168,8 +168,10 @@ scFV
 
 single-chain Fv. 是一种单链人工合成抗体, 通过将 VH 和 VL 通过生物工程融合成一条链得来.
     
+Motif
+=====
 
-
+一小段保守序列, 和某种特定功能相关. 比如 Zn-finger motif 只有 10~20 个残基.
 
 Jensen-shannon divergence
 #########################
@@ -231,4 +233,52 @@ SumatraPDF reader 的高级配置
 #####
 
 Latex to html conversion: ``htlatex``. 一般来说已经包括在 full-scheme 的 TeX Live 发行版中了.
+
+
+Git 常用用法
+############
+修改编码为 utf-8 (避免在 windows 下中文乱码)::
+
+    $ git config --global core.quotepath false          # 显示 status 编码
+    $ git config --global gui.encoding utf-8            # 图形界面编码
+    $ git config --global i18n.commit.encoding utf-8    # 提交信息编码
+    $ git config --global i18n.logoutputencoding utf-8  # 输出 log 编码
+    $ export LESSCHARSET=utf-8
+    # 最后一条命令是因为 git log 默认使用 less 分页，所以需要 bash 对 less 命令进行 utf-8 编码
+
+git diff:
+    查看当前工作区和暂存区的不同:
+    ``git diff  [--] [<path> ...]``
+
+    查看当前工作区和某次 commit 的不同:
+    ``git diff <commit> [--] [<path>...]``.
+
+    查看暂存区和某次 commit 的不同:
+    ``git diff --cached [<commit>] [--] [<path>...]``.
+    如果没有 ``<commit>``, 则默认比较和上次提交的不同.
+
+    查看两次 commit 之间的不同:
+    ``git diff <commit1> <commit2> [--] [<path>...]``.
+
+    记忆方法:
+
+        默认比较的是当前工作区和暂存区, 毕竟暂存区是工作区的一个快照.
+
+        ``--cached`` 表明要比较暂存区和 commit;
+
+        要比较两个 commit 十分直接, 就是将两个 commit 的 hash 码放在参数中.
+
+
+添加远程仓库:
+    ``git remote add <name> <url>``.
+    若是服务器, ``<url>`` 可能需要使用 ``username@servername:path/to/repo.git`` 的格式.
+
+查看远程仓库的地址:
+    ``git remote -v``.
+
+
+PyTorch
+########
+
+torch.set_num_threads(args.thread)  在使用时的一个注意事项就是如果 **不设置则默认使用物理CPU核心数的线程** 进行训练，而往往默认设置是可以保证运算效率最高的，因此该设置线程数是需要小于物理CPU核心数的，否则会造成效率下降。
 

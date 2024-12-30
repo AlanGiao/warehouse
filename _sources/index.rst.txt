@@ -14,6 +14,7 @@ Welcome to my notes!
    daily/git_usage
    protmpnn
    glossary_ai
+   anaconda-tutorial
 
 
 
