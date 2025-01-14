@@ -21,5 +21,9 @@ Baker 设计的抗体所针对的抗原 (用 '#' 分割字段; 从左到右字�
 
 设计 CDR 所依赖的人源化纳米抗体骨架: h-NbBcII10 :sub:`FGLA` [ref1]_, PDB ID 为 ``3EAK``. h-NbBcII10 (PDB ID ``3DWT``) 是原始的骆驼纳米抗体, 属于 subfamily-2 - 7 种 VHH subfamily 中最常遇见的一种. [ref1]_ 将其人源化后命名为 h-NbBcII10 :sub:`FGLA`. 这个抗体现在用的人应该比较多, 截至当前 (2024-12-18) [ref1]_ 在 ScienceDirect 上已经有 435 个引用了.
 
+date: 2024-12-31
+
+
+
 
 .. [ref1] General strategy to humanize a camelid single-domain antibody and identification of a universal humanized nanobody scaffold. URL: https://pubmed.ncbi.nlm.nih.gov/19010777/

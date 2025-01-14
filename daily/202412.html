@@ -19,8 +19,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="git 用法教程" href="git_usage.html" />
-    <link rel="prev" title="Welcome to my notes!" href="../index.html" /> 
+    <link rel="next" title="ProtMPNN 阅读笔记 (临时)" href="../protmpnn.html" />
+    <link rel="prev" title="欢迎！这是我的笔记归档页，随意浏览吧" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,7 +42,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">工作中积累的临时笔记</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2024 年 12 月 - 日知录</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#python">Python 类: 覆盖, 重载, 多态, 封装</a></li>
@@ -77,10 +77,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#pytorch">PyTorch</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="git_usage.html">git 用法教程</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protmpnn.html">ProtMPNN 阅读笔记 (临时)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary_ai.html">人工智能方面的术语</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../anaconda-tutorial.html">Anaconda 安装以及使用教程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">计算机教程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../anaconda-tutorial.html">Anaconda 安装以及使用教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_usage.html">git 用法教程</a></li>
 </ul>
 
         </div>
@@ -346,7 +350,19 @@ $ export LESSCHARSET=utf-8
 </dd>
 <dt>查看远程仓库的地址:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.</p>
 </dd>
+<dt>删除远端分支:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">--delete</span> <span class="pre">&lt;branch&gt;</span></code>.</p>
+</dd>
+<dt>重命名分支:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-m</span> <span class="pre">&lt;oldname&gt;</span> <span class="pre">&lt;newname&gt;</span></code>.</p>
+</dd>
+<dt>重命名远端分支:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">--delete</span> <span class="pre">&lt;oldname&gt;</span> <span class="pre">&amp;&amp;</span> <span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">&lt;newname&gt;</span></code>.</p>
+</dd>
+<dt>推送特定本地分支到远端：</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">&lt;local-branch&gt;[:&lt;remote-branch&gt;]</span></code>.</p>
+</dd>
+<dt>丢弃工作区的更改，使用 stage 区的快照：</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">--</span> <span class="pre">&lt;file&gt;</span></code>.</p>
+<p>checkout 就是“划掉”嘛。</p>
+</dd>
 </dl>
+<p>git pull:</p>
 </section>
 <section id="pytorch">
 <h2><a class="toc-backref" href="#id33" role="doc-backlink">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this heading"></a></h2>
@@ -358,8 +374,8 @@ $ export LESSCHARSET=utf-8
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to my notes!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="git_usage.html" class="btn btn-neutral float-right" title="git 用法教程" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="欢迎！这是我的笔记归档页，随意浏览吧" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../protmpnn.html" class="btn btn-neutral float-right" title="ProtMPNN 阅读笔记 (临时)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

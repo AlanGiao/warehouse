@@ -6,21 +6,30 @@
 欢迎！这是我的笔记归档页，随意浏览吧
 =====================================
 
+
 .. toctree::
    :maxdepth: 1
    :caption: 工作中积累的临时笔记
 
-   daily/202412
    protmpnn
+
+.. toctree:: 
+   :maxdepth: 1
+   :caption: 常用
+
+   biology
    glossary_ai
-   anaconda-tutorial
+   words
+   favorites
+   
 
 .. toctree:: 
    :maxdepth: 1
    :caption: 计算机教程
 
+   git_usage
    anaconda-tutorial
-   daily/git_usage
+   tools
 
 
 Indices and tables

@@ -276,9 +276,26 @@ git diff:
 查看远程仓库的地址:
     ``git remote -v``.
 
+删除远端分支:
+    ``git push <remote> --delete <branch>``.
+
+重命名分支:
+    ``git branch -m <oldname> <newname>``.
+
+重命名远端分支:
+    ``git push <remote> --delete <oldname> && git push <remote> <newname>``.
+
+推送特定本地分支到远端：
+    ``git push <remote> <local-branch>[:<remote-branch>]``.
+
+丢弃工作区的更改，使用 stage 区的快照：
+    ``git checkout -- <file>``.
+
+    checkout 就是“划掉”嘛。
+
+git pull:
 
 PyTorch
 ########
 
 torch.set_num_threads(args.thread)  在使用时的一个注意事项就是如果 **不设置则默认使用物理CPU核心数的线程** 进行训练，而往往默认设置是可以保证运算效率最高的，因此该设置线程数是需要小于物理CPU核心数的，否则会造成效率下降。
-
