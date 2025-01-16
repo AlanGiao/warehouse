@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2024 年 12 月 - 日知录 &mdash; My Notes 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=8930e309"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ProtMPNN 阅读笔记 (临时)" href="../protmpnn.html" />
+    <link rel="prev" title="欢迎！这是我的笔记归档页，随意浏览吧" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            My Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">工作中积累的临时笔记</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2024 年 12 月 - 日知录</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python 类: 覆盖, 重载, 多态, 封装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python-debugger">Python Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#emacs">Emacs 用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docutils">Docutils 用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rst">RST 用法官方文档</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rst-to-markdown">RST to markdown 转换</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">科研</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">生物物理相关的好网页</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">生物物理术语表</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lddt">LDDT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">纳米抗体</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vhh-hummanize">VHH 的 人源化 (hummanize)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">抗体的组成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fab">抗体的 Fab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#antigen-binding-site">抗体的 Antigen-binding site (抗原结合位点)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fv">抗体的 Fv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scfv">scFV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#motif">Motif</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#jensen-shannon-divergence">Jensen-shannon divergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#word-list">Word list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sumatrapdf-reader">SumatraPDF reader 的高级配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">其他</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git">Git 常用用法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pytorch">PyTorch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../protmpnn.html">ProtMPNN 阅读笔记 (临时)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary_ai.html">人工智能方面的术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../anaconda-tutorial.html">Anaconda 安装以及使用教程</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">计算机教程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../anaconda-tutorial.html">Anaconda 安装以及使用教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_usage.html">git 用法教程</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">My Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">2024 年 12 月 - 日知录</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/daily/202412.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><a class="toc-backref" href="#id9" role="doc-backlink">2024 年 12 月 - 日知录</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<nav class="contents" id="id2">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id1" id="id9">2024 年 12 月 - 日知录</a></p>
+<ul>
+<li><p><a class="reference internal" href="#python" id="id10">Python 类: 覆盖, 重载, 多态, 封装</a></p></li>
+<li><p><a class="reference internal" href="#python-debugger" id="id11">Python Debugger</a></p></li>
+<li><p><a class="reference internal" href="#emacs" id="id12">Emacs 用法</a></p></li>
+<li><p><a class="reference internal" href="#docutils" id="id13">Docutils 用法</a></p></li>
+<li><p><a class="reference internal" href="#rst" id="id14">RST 用法官方文档</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rst-to-markdown" id="id15">RST to markdown 转换</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id3" id="id16">科研</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id4" id="id17">生物物理相关的好网页</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id18">生物物理术语表</a></p>
+<ul>
+<li><p><a class="reference internal" href="#lddt" id="id19">LDDT</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id20">纳米抗体</a></p></li>
+<li><p><a class="reference internal" href="#vhh-hummanize" id="id21">VHH 的 人源化 (hummanize)</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id22">抗体的组成</a></p></li>
+<li><p><a class="reference internal" href="#fab" id="id23">抗体的 Fab</a></p></li>
+<li><p><a class="reference internal" href="#antigen-binding-site" id="id24">抗体的 Antigen-binding site (抗原结合位点)</a></p></li>
+<li><p><a class="reference internal" href="#fv" id="id25">抗体的 Fv</a></p></li>
+<li><p><a class="reference internal" href="#scfv" id="id26">scFV</a></p></li>
+<li><p><a class="reference internal" href="#motif" id="id27">Motif</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#jensen-shannon-divergence" id="id28">Jensen-shannon divergence</a></p></li>
+<li><p><a class="reference internal" href="#word-list" id="id29">Word list</a></p></li>
+<li><p><a class="reference internal" href="#sumatrapdf-reader" id="id30">SumatraPDF reader 的高级配置</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id31">其他</a></p></li>
+<li><p><a class="reference internal" href="#git" id="id32">Git 常用用法</a></p></li>
+<li><p><a class="reference internal" href="#pytorch" id="id33">PyTorch</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="python">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Python 类: 覆盖, 重载, 多态, 封装</a><a class="headerlink" href="#python" title="Permalink to this heading"></a></h2>
+<p>Python 默认不支持 class overload, 但是有办法实现 overload.</p>
+<p>覆盖 (override): 在子类中重新定义父类的方法, 以实现不同的行为. 注意:</p>
+<ol class="arabic simple">
+<li><p>覆盖方法的参数列表必须与父类方法完全相同.</p></li>
+<li><p>覆盖方法的返回值类型必须与父类方法完全相同.</p></li>
+<li><p>不能降低覆盖方法的访问权限, 如果父类方法是public, 子类方法也必须是public.</p></li>
+<li><p>可以用 <code class="docutils literal notranslate"><span class="pre">final</span></code> 修饰父类方法, 被修饰的父类方法将不能被子类覆盖.</p></li>
+</ol>
+<p>重载 (overload): 在同一个类中定义多个同名方法, 但参数列表不同. 注意不能出现方法名和参数列表均相同, 但返回值类型不同的情况 (此时python不知道调用哪个方法)</p>
+<p>多态: 当子类和父类存在相同的方法时, 子类方法会覆盖父类方法. 这就是多态.</p>
+</section>
+<section id="python-debugger">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Python Debugger</a><a class="headerlink" href="#python-debugger" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>在 debugger 环境中设置断点: <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p></li>
+<li><p>执行下一步 (如果下一步是函数, 那么会进入函数并停止): <code class="docutils literal notranslate"><span class="pre">s(tep)</span></code></p></li>
+<li><p>执行下一步 (如果下一步是函数调用, 那么会直接运行完整个函数): <code class="docutils literal notranslate"><span class="pre">n(ext)</span></code></p></li>
+<li><p>执行指定行: <code class="docutils literal notranslate"><span class="pre">j(ump)</span></code>. 只能在调用栈的最顶部用.</p></li>
+<li><p>打印当前函数的参数及值: <code class="docutils literal notranslate"><span class="pre">a(rgs)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">debug</span></code>: 在当前 debugger shell 下打开一个子 debugger, 并debug 后面跟的脚本.</p></li>
+</ol>
+</section>
+<section id="emacs">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Emacs 用法</a><a class="headerlink" href="#emacs" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>是否使用真实 TAB 缩进:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">indent-tabs-mode</span></code></p>
+</dd>
+<dt>一个 TAB 的宽度:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">setq-default</span> <span class="pre">tab-width</span> <span class="pre">4</span></code></p>
+</dd>
+</dl>
+</section>
+<section id="docutils">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Docutils 用法</a><a class="headerlink" href="#docutils" title="Permalink to this heading"></a></h2>
+<p>索引页面: <a class="reference external" href="https://docutils.sourceforge.io/docs/index.html">https://docutils.sourceforge.io/docs/index.html</a></p>
+<p>DocUtils 用法简介: <a class="reference external" href="https://docutils.sourceforge.io/README.html#quick-start">https://docutils.sourceforge.io/README.html#quick-start</a></p>
+<p>完整用法: <a class="reference external" href="https://docutils.sourceforge.io/docs/user/tools.html">https://docutils.sourceforge.io/docs/user/tools.html</a></p>
+</section>
+<section id="rst">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">RST 用法官方文档</a><a class="headerlink" href="#rst" title="Permalink to this heading"></a></h2>
+<p><a class="reference external" href="https://docutils.sourceforge.io/rst.html">https://docutils.sourceforge.io/rst.html</a></p>
+<p>quick ref: <a class="reference external" href="https://docutils.sourceforge.io/docs/user/rst/quickref.html">https://docutils.sourceforge.io/docs/user/rst/quickref.html</a></p>
+<p>Docutils 命令汇总: <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html">https://docutils.sourceforge.io/docs/ref/rst/directives.html</a></p>
+<p>命令 (directives) 是形如 <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">directive::</span></code> 的单行字符; 其与其他文本行以一个及以上的空行分隔. 常用的 directive 列举如下.</p>
+<p><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">contents::</span> <span class="pre">[&lt;Some</span> <span class="pre">Text&gt;]</span></code>: 生成目录.</p>
+<p>Docutils 参数汇总: <a class="reference external" href="https://docutils.sourceforge.io/docs/user/config.html">https://docutils.sourceforge.io/docs/user/config.html</a>. 常用参数如下:</p>
+<dl class="option-list">
+<dt><kbd><span class="option">--toc-entry-backlinks</span></kbd></dt>
+<dd><p>Link from section headers to TOC entries.  (default)</p>
+</dd>
+<dt><kbd><span class="option">--toc-top-backlinks</span></kbd></dt>
+<dd><p>Link from section headers to the top of the TOC.</p>
+</dd>
+<dt><kbd><span class="option">--no-toc-backlinks</span></kbd></dt>
+<dd><p>Disable backlinks to the table of contents.</p>
+</dd>
+</dl>
+<p>决定输出到什么文件:</p>
+<dl class="option-list">
+<dt><kbd><span class="option">--writer</span></kbd></dt>
+<dd><p>One of [“html”, “html4”, “html5”, “latex”, “xelatex”, “odt”, “xml”, “pseudoxml”, “manpage”, “pep_html”, “s5”]</p>
+</dd>
+</dl>
+<section id="rst-to-markdown">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">RST to markdown 转换</a><a class="headerlink" href="#rst-to-markdown" title="Permalink to this heading"></a></h3>
+</section>
+</section>
+<section id="id3">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">科研</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<section id="id4">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">生物物理相关的好网页</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<p>BLAST 官方给出的术语表. 里面有很多常见的术语. <a class="reference external" href="https://www.ncbi.nlm.nih.gov/books/NBK62051/">https://www.ncbi.nlm.nih.gov/books/NBK62051/</a></p>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">生物物理术语表</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<section id="lddt">
+<h4><a class="toc-backref" href="#id19" role="doc-backlink">LDDT</a><a class="headerlink" href="#lddt" title="Permalink to this heading"></a></h4>
+<p>参考了一篇 2013 年的论文: <a class="reference external" href="https://academic.oup.com/bioinformatics/article/29/21/2722/195896">lDDT: a local superposition-free score for comparing protein structures and models using distance difference tests</a>.</p>
+<p>动机: 蛋白结构预测技术需要一个客观的标准来评价其预测模型和真实结构的相似程度. 但基于对齐 (superposition) alpha 碳原子的方法会被 domain 移动强烈影响, 且不能评估局部原子级别的精确性.</p>
+<p>计算方法:</p>
+</section>
+<section id="id6">
+<h4><a class="toc-backref" href="#id20" role="doc-backlink">纳米抗体</a><a class="headerlink" href="#id6" title="Permalink to this heading"></a></h4>
+<p>又称 single-domain antibody (sdAb), 是仅包含一个 domain - variable domain - 的抗体片段.</p>
+<p>第一个 sdAb 是在骆驼科动物的 heavy-chain antibody 上通过生物工程获得的, 称作 VHH fragment. 鲨鱼科动物也有一种名为 IgNAR (Immunoglobin New Antigen Receptor) 的 heavy-chain antibody, 以它为原料获得的 sdAb 叫做 VNAR fragment.</p>
+<p>纳米抗体和人抗体重链 variable domain 有约 10 个氨基酸的不同:</p>
+<ol class="arabic simple">
+<li><p>在 framework-2 region (第二个 framework region) 有 4 个标志性的纳米抗体特有的氨基酸, 位于纳米抗体的位点 42, 49, 50, 52;</p></li>
+<li><p>更长的 CDR H3 loop 长度.</p></li>
+</ol>
+</section>
+<section id="vhh-hummanize">
+<h4><a class="toc-backref" href="#id21" role="doc-backlink">VHH 的 人源化 (hummanize)</a><a class="headerlink" href="#vhh-hummanize" title="Permalink to this heading"></a></h4>
+<p>将骆驼身上的抗体的 framework region 的氨基酸序列突变成类似人体的 framework region 序列.</p>
+</section>
+<section id="id7">
+<h4><a class="toc-backref" href="#id22" role="doc-backlink">抗体的组成</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+<p>抗体由两条全同的重链和两条全同的轻链构成. 每条链又分为多个 domain, 每个 domain 可能又分为不同的 region. 每个重链都会和一个轻链通过二硫键配对; 两个重链-轻链对再通过重链间形成二硫键形成一个 “Y” 形结构.</p>
+<p>重链包含 VH1, CH1, CH2, CH3 四个 domain. 第一个字母 V/H 表示 variable/constant (可变/恒定), 第二个字母表示这是重链 (Heavy chain), 第三个数字就是编号.</p>
+<p>轻链包含 VL, CL 两个 domain. 由于 Varialb 和 Constant 只有一个, 所以后面不带编号.</p>
+</section>
+<section id="fab">
+<h4><a class="toc-backref" href="#id23" role="doc-backlink">抗体的 Fab</a><a class="headerlink" href="#fab" title="Permalink to this heading"></a></h4>
+<p>Antigen-binding fragment 的缩写. 由四个 domain 构成, 分别是: VH, VL, CH1, CL1; 即重链和轻链各自贡献一组 constant 和 variable domain. 通过前面的定义可以看出 Fab 就是 “Y” 的两个分支中的一个.</p>
+</section>
+<section id="antigen-binding-site">
+<h4><a class="toc-backref" href="#id24" role="doc-backlink">抗体的 Antigen-binding site (抗原结合位点)</a><a class="headerlink" href="#antigen-binding-site" title="Permalink to this heading"></a></h4>
+<p>又称 paratope, 负责识别和结合抗原, 位于抗体 “Y” 形结构的分叉末端. 每个抗体都有 2 个 paratope, “Y” 形的每一端都有一个. 一个 antigen-binding site 包含 6 个 CDR, 三个来自重链, 三个来自轻链. 综上所述, paratope 就是 “Y” 的尖端部分.</p>
+</section>
+<section id="fv">
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">抗体的 Fv</a><a class="headerlink" href="#fv" title="Permalink to this heading"></a></h4>
+<p>Varialbe fragment 的缩写, 其实一个 Fv 就是抗体的一个 variable domain, 所以我认为 Fv 就是 variable domain 的别名.</p>
+<p>Fv 的组成: 由三个 CDR 区域 (又称 hypervariable region) 和 4 个 framework region (简称 FR) 组成. 顺序为 FR1, CDR1, FR2, CDR2, FR3, CDR3, FR4. FR 不易突变, CDR 十分容易突变.</p>
+</section>
+<section id="scfv">
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">scFV</a><a class="headerlink" href="#scfv" title="Permalink to this heading"></a></h4>
+<p>single-chain Fv. 是一种单链人工合成抗体, 通过将 VH 和 VL 通过生物工程融合成一条链得来.</p>
+</section>
+<section id="motif">
+<h4><a class="toc-backref" href="#id27" role="doc-backlink">Motif</a><a class="headerlink" href="#motif" title="Permalink to this heading"></a></h4>
+<p>一小段保守序列, 和某种特定功能相关. 比如 Zn-finger motif 只有 10~20 个残基.</p>
+</section>
+</section>
+</section>
+<section id="jensen-shannon-divergence">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">Jensen-shannon divergence</a><a class="headerlink" href="#jensen-shannon-divergence" title="Permalink to this heading"></a></h2>
+</section>
+<section id="word-list">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">Word list</a><a class="headerlink" href="#word-list" title="Permalink to this heading"></a></h2>
+<p>paucimannose: Paucimannose (少甘露糖) 是一种无脊椎动物和植物中常见的甘露糖苷 N-糖表位。 Paucimannose 聚糖在癌症中表达。mannose 是甘露糖. 甘露糖（Mannose）是一种单糖，也是一种六碳糖。在自然界中较少单独存在，多以群体的大分子形式出现。其甜度比蔗糖低，可作为糖尿病患者的代糖使用</p>
+<dl class="simple">
+<dt>glycosylate</dt><dd><p>糖基化.</p>
+</dd>
+<dt>glycosyl</dt><dd><p>糖基.</p>
+</dd>
+</dl>
+<p>glycol: 乙二醇.</p>
+<p>glycogen: 糖原.</p>
+<p>glycine: 甘氨酸.</p>
+<p>glucose: 葡萄糖.</p>
+<p>clostridium: 梭菌, 是细菌的一个纲.</p>
+<p>reagent: [c.] 试剂.</p>
+<p>amendable: [adj.], amend 的形容词形式.</p>
+<p>amend: [v.] 修正, 订正. (make minor changes to something (like text, piece of legislation) to make it more fair or more accurate).</p>
+<p>promply: [adv.] 讯速地.</p>
+<p>prompt: 除了常见的动词用法 “鼓励/提词/催促” 外, 还有形容词 “准时/迅速” 的含义.</p>
+<p>disclaimer: [n.] 免责声明.</p>
+<p>specifric: [adj.] 具体的; 特有的; 有特效的; (物理) 成比率的;</p>
+<p>hallmark [adj.] 标志.</p>
+<p>dromedary [n.] 单峰骆驼.</p>
+<p>identity [n.] 身份; 特性; 恒等式. <em>Subsequently, we substituted the remaining “non-human” residues in the framework and resurfaced NbBcII10 to obtain a humanized Nanobody scaffold (h-NbBcII10FGLA) so as to exhibit the closest possible amino acid identity to a human VH (Fig. 1).</em></p>
+<p>retention: [v.] 保留, 保持; 潴留.</p>
+</section>
+<section id="sumatrapdf-reader">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">SumatraPDF reader 的高级配置</a><a class="headerlink" href="#sumatrapdf-reader" title="Permalink to this heading"></a></h2>
+<p>文档: <a class="reference external" href="https://www.sumatrapdfreader.org/settings/settings3-5-1">https://www.sumatrapdfreader.org/settings/settings3-5-1</a></p>
+</section>
+<section id="id8">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">其他</a><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
+<p>Latex to html conversion: <code class="docutils literal notranslate"><span class="pre">htlatex</span></code>. 一般来说已经包括在 full-scheme 的 TeX Live 发行版中了.</p>
+</section>
+<section id="git">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Git 常用用法</a><a class="headerlink" href="#git" title="Permalink to this heading"></a></h2>
+<p>修改编码为 utf-8 (避免在 windows 下中文乱码):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global core.quotepath false          # 显示 status 编码
+$ git config --global gui.encoding utf-8            # 图形界面编码
+$ git config --global i18n.commit.encoding utf-8    # 提交信息编码
+$ git config --global i18n.logoutputencoding utf-8  # 输出 log 编码
+$ export LESSCHARSET=utf-8
+# 最后一条命令是因为 git log 默认使用 less 分页，所以需要 bash 对 less 命令进行 utf-8 编码
+</pre></div>
+</div>
+<dl>
+<dt>git diff:</dt><dd><p>查看当前工作区和暂存区的不同:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span>&#160; <span class="pre">[--]</span> <span class="pre">[&lt;path&gt;</span> <span class="pre">...]</span></code></p>
+<p>查看当前工作区和某次 commit 的不同:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">&lt;commit&gt;</span> <span class="pre">[--]</span> <span class="pre">[&lt;path&gt;...]</span></code>.</p>
+<p>查看暂存区和某次 commit 的不同:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">--cached</span> <span class="pre">[&lt;commit&gt;]</span> <span class="pre">[--]</span> <span class="pre">[&lt;path&gt;...]</span></code>.
+如果没有 <code class="docutils literal notranslate"><span class="pre">&lt;commit&gt;</span></code>, 则默认比较和上次提交的不同.</p>
+<p>查看两次 commit 之间的不同:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span> <span class="pre">&lt;commit1&gt;</span> <span class="pre">&lt;commit2&gt;</span> <span class="pre">[--]</span> <span class="pre">[&lt;path&gt;...]</span></code>.</p>
+<p>记忆方法:</p>
+<blockquote>
+<div><p>默认比较的是当前工作区和暂存区, 毕竟暂存区是工作区的一个快照.</p>
+<p><code class="docutils literal notranslate"><span class="pre">--cached</span></code> 表明要比较暂存区和 commit;</p>
+<p>要比较两个 commit 十分直接, 就是将两个 commit 的 hash 码放在参数中.</p>
+</div></blockquote>
+</dd>
+<dt>添加远程仓库:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;url&gt;</span></code>.
+若是服务器, <code class="docutils literal notranslate"><span class="pre">&lt;url&gt;</span></code> 可能需要使用 <code class="docutils literal notranslate"><span class="pre">username&#64;servername:path/to/repo.git</span></code> 的格式.</p>
+</dd>
+<dt>查看远程仓库的地址:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>.</p>
+</dd>
+<dt>删除远端分支:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">--delete</span> <span class="pre">&lt;branch&gt;</span></code>.</p>
+</dd>
+<dt>重命名分支:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-m</span> <span class="pre">&lt;oldname&gt;</span> <span class="pre">&lt;newname&gt;</span></code>.</p>
+</dd>
+<dt>重命名远端分支:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">--delete</span> <span class="pre">&lt;oldname&gt;</span> <span class="pre">&amp;&amp;</span> <span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">&lt;newname&gt;</span></code>.</p>
+</dd>
+<dt>推送特定本地分支到远端：</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">&lt;remote&gt;</span> <span class="pre">&lt;local-branch&gt;[:&lt;remote-branch&gt;]</span></code>.</p>
+</dd>
+<dt>丢弃工作区的更改，使用 stage 区的快照：</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">--</span> <span class="pre">&lt;file&gt;</span></code>.</p>
+<p>checkout 就是“划掉”嘛。</p>
+</dd>
+</dl>
+<p>git pull:</p>
+</section>
+<section id="pytorch">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">PyTorch</a><a class="headerlink" href="#pytorch" title="Permalink to this heading"></a></h2>
+<p>torch.set_num_threads(args.thread)  在使用时的一个注意事项就是如果 <strong>不设置则默认使用物理CPU核心数的线程</strong> 进行训练，而往往默认设置是可以保证运算效率最高的，因此该设置线程数是需要小于物理CPU核心数的，否则会造成效率下降。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="欢迎！这是我的笔记归档页，随意浏览吧" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../protmpnn.html" class="btn btn-neutral float-right" title="ProtMPNN 阅读笔记 (临时)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, jmlv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+###################
+git 用法教程
+###################
+
+在本地和服务器间进行传输
+=========================
+
+#. 首先建立裸仓库: ``git init --bare test.git``
+
+#. 然后建立本地仓库: ``mkdir my_repo; cd my_repo; git init``
+
+#. 在本地仓库建立一个文件, 然后提交::
+
+    git add .
+    git commit -m "first commit"
+
+#. 然后将本地仓库推送到服务器上::
+
+    git remote add server UserName@ServerIP:/path/to/test.git
+    git push -u server master
+
+   注意, 这里 push 的是本地的 master branch, 所以要确保服务器上仓库的 HEAD 的第一行也包含 master; 否则就需要重命名本地仓库的名字以和服务器上的主分支保持一致.
+
+如果需要在 push 到服务器后, push 的文件自动出现在某个目录, 可以使用 git 的 hook 功能: 
+
+
+不改变提交信息的情况下, 重新提交
+====================================
+
+有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。 此时，可以运行带有 --amend 选项的提交命令来重新提交::
+
+    $ git commit --amend
+
+取消跟踪文件
+===================
+
+    git rm <file_name>
+
+
+字符编码修改
+=============
+
+修改编码为 utf-8 (避免在 windows 下中文乱码)::
+
+    $ git config --global core.quotepath false          # 显示 status 编码
+    $ git config --global gui.encoding utf-8            # 图形界面编码
+    $ git config --global i18n.commit.encoding utf-8    # 提交信息编码
+    $ git config --global i18n.logoutputencoding utf-8  # 输出 log 编码
+    $ export LESSCHARSET=utf-8
+    # 最后一条命令是因为 git log 默认使用 less 分页，所以需要 bash 对 less 命令进行 utf-8 编码
+
+
+查看不同提交、分支以及暂存区和工作区的差异
+===========================================
+
+都是用 ``git diff``:
+
+查看当前工作区和暂存区的不同:
+``git diff  [--] [<path> ...]``
+
+查看当前工作区和某次 commit 的不同:
+``git diff <commit> [--] [<path>...]``.
+
+查看暂存区和某次 commit 的不同:
+``git diff --cached [<commit>] [--] [<path>...]``.
+如果没有 ``<commit>``, 则默认比较和上次提交的不同.
+
+查看两次 commit 之间的不同:
+``git diff <commit1> <commit2> [--] [<path>...]``.
+
+记忆方法:
+
+    默认比较的是当前工作区和暂存区, 毕竟暂存区是工作区的一个快照.
+
+    ``--cached`` 表明要比较暂存区和 commit;
+
+    要比较两个 commit 十分直接, 就是将两个 commit 的 hash 码放在参数中.
+
+
+仓库、分支管理
+================
+
+添加远程仓库:
+    ``git remote add <name> <url>``.
+    若是服务器, ``<url>`` 可能需要使用 ``username@servername:path/to/repo.git`` 的格式.
+
+查看远程仓库的地址:
+    ``git remote -v``.
+
+删除远端分支:
+    ``git push <remote> --delete <branch>``.
+
+重命名分支:
+    ``git branch -m <oldname> <newname>``.
+
+重命名远端分支:
+    ``git push <remote> --delete <oldname> && git push <remote> <newname>``.
+
+推送特定本地分支到远端：
+    ``git push <remote> <local-branch>[:<remote-branch>]``.
+
+丢弃工作区的更改，使用 stage 区的快照：
+    ``git checkout -- <file>``.
+
+    checkout 就是“划掉”嘛。
+
+git pull:
+
+
+让提交历史更简洁 git rebase
+============================
+
+假设当前在 branch-1 上，要把 branch-1 上的修改合并到 master 上，但是不想把 
+
+
+临时保存但不提交 - stash
+=========================
+
+暂存: ``git stash``
+    这会将工作目录、已经被 ``git add`` 到暂存区的修改贮存到一个栈中。

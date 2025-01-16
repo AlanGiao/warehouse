@@ -1,0 +1,40 @@
+.. my_proj documentation master file, created by
+   sphinx-quickstart on Wed Dec 11 10:26:14 2024.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+欢迎！这是我的笔记归档页，随意浏览吧
+=====================================
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 工作中积累的临时笔记
+
+   protmpnn
+
+.. toctree:: 
+   :maxdepth: 1
+   :caption: 常用
+
+   biology
+   glossary_ai
+   words
+   favorites
+   
+
+.. toctree:: 
+   :maxdepth: 1
+   :caption: 计算机教程
+
+   git_usage
+   anaconda-tutorial
+   tools
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

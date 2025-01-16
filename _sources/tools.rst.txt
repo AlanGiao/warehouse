@@ -1,0 +1,54 @@
+##################
+实用工具的用法
+##################
+
+
+Emacs 用法
+##########
+
+是否使用真实 TAB 缩进:
+    ``indent-tabs-mode``
+
+一个 TAB 的宽度:
+    ``setq-default tab-width 4``
+
+
+RestructuredText (RST) 用法
+############################
+
+Docutils 用法
+==============
+
+可以把 rst 文本文件转为 LaTeX/HTML/texinfo 等格式。
+
+索引页面: https://docutils.sourceforge.io/docs/index.html
+
+DocUtils 用法简介: https://docutils.sourceforge.io/README.html#quick-start
+
+完整用法: https://docutils.sourceforge.io/docs/user/tools.html
+
+Docutils 参数汇总: https://docutils.sourceforge.io/docs/user/config.html. 常用参数如下:
+
+--toc-entry-backlinks   Link from section headers to TOC entries.  (default)
+
+--toc-top-backlinks     Link from section headers to the top of the TOC.
+
+--no-toc-backlinks      Disable backlinks to the table of contents.
+
+决定输出到什么文件: 
+
+--writer    One of ["html", "html4", "html5", "latex", "xelatex", "odt", "xml", "pseudoxml", "manpage", "pep_html", "s5"]
+
+
+RST 用法官方文档
+=================
+
+https://docutils.sourceforge.io/rst.html
+
+quick ref: https://docutils.sourceforge.io/docs/user/rst/quickref.html
+
+Docutils 命令汇总: https://docutils.sourceforge.io/docs/ref/rst/directives.html
+
+命令 (directives) 是形如 ``.. directive::`` 的单行字符; 其与其他文本行以一个及以上的空行分隔. 常用的 directive 列举如下.
+
+``.. contents:: [<Some Text>]``: 生成目录.

@@ -1,0 +1,5 @@
+###########
+收藏夹
+###########
+
+BLAST 官方给出的术语表. 里面有很多常见的术语. https://www.ncbi.nlm.nih.gov/books/NBK62051/

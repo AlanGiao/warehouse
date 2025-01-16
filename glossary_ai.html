@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人工智能方面的术语 &mdash; My Notes 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=8930e309"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="单词本" href="words.html" />
+    <link rel="prev" title="生物学术语与概念" href="biology.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            My Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">工作中积累的临时笔记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="protmpnn.html">ProtMPNN 阅读笔记 (临时)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">常用</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="biology.html">生物学术语与概念</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">人工智能方面的术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="words.html">单词本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="favorites.html">收藏夹</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">计算机教程</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="git_usage.html">git 用法教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda-tutorial.html">Anaconda 安装以及使用教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">实用工具的用法</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">My Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">人工智能方面的术语</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/glossary_ai.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>人工智能方面的术语<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<dl>
+<dt><em>temperature</em> in NLP</dt><dd><p>用一个例子说明这个概念. 给定输入如:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;the mouse eat &quot;</span>
+</pre></div>
+</div>
+<p>让 LLM 预测下一个词是什么. LLM 会给出不同的预测和相应的 logits, 比如:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;cheese&quot;</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s2">&quot;cookie&quot;</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s2">&quot;dumplings&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>此 logit 并未归一, 所以要用 softmax 将其归一. 普通的 softmax 是</p>
+<div class="math notranslate nohighlight">
+\[S(\vec{z}) = \frac{\exp(z_i)}{\sum_i \exp(z_i)}.\]</div>
+<p>temperature 参数的作用在于改变 softmax 函数在 x 方向的 “伸缩” 情况. 设
+temperature 是 <span class="math notranslate nohighlight">\(\theta\)</span>, 则此时 softmax 变成</p>
+<div class="math notranslate nohighlight">
+\[S(\vec{z}) = \frac{ \exp(z_i / \theta) }{\sum_i \exp(z_i /\theta)}.\]</div>
+<p>如果 <span class="math notranslate nohighlight">\(\theta &lt; 1\)</span>, 那么 softmax 会拉大不同 logits 值之间的差
+距(倾向于 delta 函数); 若 <span class="math notranslate nohighlight">\(\theta &gt; 1\)</span>, 则 softmax 会缩小不
+同 logits 之间的差距 (倾向与于均匀分布). 这就是为何此参数叫做 “温
+度”, 因为温度越高, 热运动越剧烈, 则体系越倾向于均匀分布.</p>
+</dd>
+<dt>Label smoothing (标签平滑)</dt><dd><p>是一种提升神经网络分类模型的稳定性, 可推广性的技术 (正则化技术). 可以避免神经网
+络对起预测结果过于自信 (这会导致过拟合). 其功能包括:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>使模型不要 “过于自信”.</p></li>
+<li><p>使模型的预测概率更好地体现真实的似然性.</p></li>
+<li><p>让模型能更好地处理含噪的训练数据.</p></li>
+</ul>
+</div></blockquote>
+<p>原理: 假设标签是 <span class="math notranslate nohighlight">\([0, 0, 1, 0]\)</span> (one-hot label), 则平滑后的
+标签为 <span class="math notranslate nohighlight">\([\epsilon, \epsilon, 1-(K-1)\epsilon, \epsilon]\)</span>, 其
+中 <span class="math notranslate nohighlight">\(\epsilon\)</span> 是一个很小的数字, <span class="math notranslate nohighlight">\(K\)</span> 是类别的数量.</p>
+<p>使用场景:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>拥有大量类别的大数据集.</p></li>
+<li><p>含噪或模糊的标签.</p></li>
+<li><p>概率模型.</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>局限和注意事项:</dt><dd><ul class="simple">
+<li><p>超参数 <span class="math notranslate nohighlight">\(\epsilon\)</span> 需要精心调整, 不同的模型的最优值不同.</p></li>
+<li><p>有时候标签平滑可能不会提升表现, 甚至会使结果变差.</p></li>
+<li><p>由于标签平滑修改了标签, 故此技术可能增加训练所需时间.</p></li>
+</ul>
+</dd>
+</dl>
+<p>一种实现手段, 将 label smoothing 直接集成到 CrossEntropy 中 (但是
+好像有问题啊):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+
+<span class="c1"># Sample data</span>
+<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># Generate dummy data</span>
+<span class="n">true_labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># True class indices</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]])</span>
+<span class="c1"># Label smoothing function</span>
+<span class="k">def</span> <span class="nf">label_smoothed_nll_loss</span><span class="p">(</span><span class="n">lprobs</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+    <span class="n">lprobs</span> <span class="o">=</span> <span class="n">lprobs</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">lprobs</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">nll_loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">lprobs</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
+    <span class="n">smooth_loss</span> <span class="o">=</span> <span class="o">-</span><span class="n">lprobs</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">eps</span><span class="p">)</span> <span class="o">*</span> <span class="n">nll_loss</span> <span class="o">+</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">smooth_loss</span>
+    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="c1"># Apply log softmax to predictions</span>
+<span class="n">log_probs</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">log_softmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Calculate the loss</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">label_smoothed_nll_loss</span><span class="p">(</span><span class="n">log_probs</span><span class="p">,</span> <span class="n">true_labels</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Label Smoothing Loss (PyTorch): </span><span class="si">{</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>RBF function</dt><dd><p>任何仅与输入和某向量的范数有关的函数就是 rbf 函数. 常用的 Gaussian
+RBF function 定义为:</p>
+<div class="math notranslate nohighlight">
+\[\varphi(\vec x)_\vec{c} = e^{- \epsilon ||\vec x - \vec c||^2}.\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(\epsilon\)</span> 是一个常数参数, 用以调整函数的形状.</p>
+<p>其他的 RBF 函数:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Inverse quadratic: <span class="math notranslate nohighlight">\(\varphi(r) = \frac{1}{1+(\epsilon
+r)^2}\)</span>.</p></li>
+<li><p>Inverse multiquadric
+<span class="math notranslate nohighlight">\(\varphi(r) = \frac{1}{1 + (\epsilon r)^2}\)</span>.</p></li>
+</ol>
+</div></blockquote>
+</dd>
+<dt>Permutation matrix</dt><dd><p>置换矩阵. 是一个方阵, 每一行每一列只有一个元素为 1, 其他元素均
+为 0.</p>
+<p>其构造方法为: 若想构造将矩阵的行按照某种方式交换的置换矩阵, 则只需
+要将单位矩阵的行按相应的方式交换即可. 列置换矩阵类似, 只是需要交换
+列.</p>
+</dd>
+</dl>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="biology.html" class="btn btn-neutral float-left" title="生物学术语与概念" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="words.html" class="btn btn-neutral float-right" title="单词本" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, jmlv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

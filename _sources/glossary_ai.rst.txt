@@ -1,0 +1,112 @@
+====================
+ 人工智能方面的术语
+====================
+
+*temperature* in NLP
+    用一个例子说明这个概念. 给定输入如::
+
+      "the mouse eat "
+
+    让 LLM 预测下一个词是什么. LLM 会给出不同的预测和相应的 logits, 比如::
+
+      {"cheese": 90, "cookie": 78, "dumplings": 12}
+
+    此 logit 并未归一, 所以要用 softmax 将其归一. 普通的 softmax 是
+
+    .. math::
+
+       S(\vec{z}) = \frac{\exp(z_i)}{\sum_i \exp(z_i)}.
+
+    temperature 参数的作用在于改变 softmax 函数在 x 方向的 "伸缩" 情况. 设
+    temperature 是 :math:`\theta`, 则此时 softmax 变成
+
+    .. math::
+
+       S(\vec{z}) = \frac{ \exp(z_i / \theta) }{\sum_i \exp(z_i /\theta)}. 
+
+    如果 :math:`\theta < 1`, 那么 softmax 会拉大不同 logits 值之间的差
+    距(倾向于 delta 函数); 若 :math:`\theta > 1`, 则 softmax 会缩小不
+    同 logits 之间的差距 (倾向与于均匀分布). 这就是为何此参数叫做 "温
+    度", 因为温度越高, 热运动越剧烈, 则体系越倾向于均匀分布.
+	
+Label smoothing (标签平滑)
+    是一种提升神经网络分类模型的稳定性, 可推广性的技术 (正则化技术). 可以避免神经网
+    络对起预测结果过于自信 (这会导致过拟合). 其功能包括:
+
+        - 使模型不要 "过于自信".
+
+	- 使模型的预测概率更好地体现真实的似然性.
+
+	- 让模型能更好地处理含噪的训练数据.
+
+    原理: 假设标签是 :math:`[0, 0, 1, 0]` (one-hot label), 则平滑后的
+    标签为 :math:`[\epsilon, \epsilon, 1-(K-1)\epsilon, \epsilon]`, 其
+    中 :math:`\epsilon` 是一个很小的数字, :math:`K` 是类别的数量.
+
+    使用场景:
+
+        - 拥有大量类别的大数据集.
+
+	- 含噪或模糊的标签.
+
+	- 概率模型.
+
+    局限和注意事项:
+        - 超参数 :math:`\epsilon` 需要精心调整, 不同的模型的最优值不同.
+
+	- 有时候标签平滑可能不会提升表现, 甚至会使结果变差.
+
+	- 由于标签平滑修改了标签, 故此技术可能增加训练所需时间.
+
+    一种实现手段, 将 label smoothing 直接集成到 CrossEntropy 中 (但是
+    好像有问题啊)::
+
+      import torch
+      import torch.nn.functional as F
+
+      # Sample data
+      num_classes = 4
+      batch_size = 2
+      # Generate dummy data
+      true_labels = torch.tensor([2, 1])  # True class indices
+      predictions = torch.tensor([[0.1, 0.2, 0.7, 0.0], [0.2, 0.7, 0.1, 0.0]]) 
+      # Label smoothing function
+      def label_smoothed_nll_loss(lprobs, target, eps=0.1):
+	  lprobs = lprobs.view(-1, lprobs.size(-1))
+	  target = target.view(-1, 1)
+          nll_loss = -lprobs.gather(dim=-1, index=target)
+          smooth_loss = -lprobs.mean(dim=-1)
+          loss = (1.0 - eps) * nll_loss + eps * smooth_loss
+	  return loss.sum()
+      # Apply log softmax to predictions
+      log_probs = F.log_softmax(predictions, dim=-1)
+      # Calculate the loss
+      loss = label_smoothed_nll_loss(log_probs, true_labels, eps=0.1)
+      print(f'Label Smoothing Loss (PyTorch): {loss.item()}')
+
+
+RBF function
+    任何仅与输入和某向量的范数有关的函数就是 rbf 函数. 常用的 Gaussian
+    RBF function 定义为:
+
+    .. math::
+
+       \varphi(\vec x)_\vec{c} = e^{- \epsilon ||\vec x - \vec c||^2}.
+
+    其中 :math:`\epsilon` 是一个常数参数, 用以调整函数的形状.
+
+    其他的 RBF 函数:
+
+        #. Inverse quadratic: :math:`\varphi(r) = \frac{1}{1+(\epsilon
+	   r)^2}`.
+
+	#. Inverse multiquadric
+	   :math:`\varphi(r) = \frac{1}{1 + (\epsilon r)^2}`.
+
+Permutation matrix
+    置换矩阵. 是一个方阵, 每一行每一列只有一个元素为 1, 其他元素均
+    为 0.
+
+    其构造方法为: 若想构造将矩阵的行按照某种方式交换的置换矩阵, 则只需
+    要将单位矩阵的行按相应的方式交换即可. 列置换矩阵类似, 只是需要交换
+    列.

@@ -1,0 +1,383 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anaconda 安装以及使用教程 &mdash; My Notes 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=8930e309"></script>
+      <script src="_static/doctools.js?v=888ff710"></script>
+      <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="实用工具的用法" href="tools.html" />
+    <link rel="prev" title="git 用法教程" href="git_usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            My Notes
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">工作中积累的临时笔记</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="protmpnn.html">ProtMPNN 阅读笔记 (临时)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">常用</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="biology.html">生物学术语与概念</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary_ai.html">人工智能方面的术语</a></li>
+<li class="toctree-l1"><a class="reference internal" href="words.html">单词本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="favorites.html">收藏夹</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">计算机教程</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="git_usage.html">git 用法教程</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Anaconda 安装以及使用教程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">什么是 anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">下载 &amp; 安装 Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">Anaconda 基础概念和使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step1">进阶 step1 - 虚拟环境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">虚拟环境简介</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">查看有哪些虚拟环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">查看当前虚拟环境中安装了哪些包</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">创建/删除虚拟环境</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">创建虚拟环境</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">删除虚拟环境</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">进入/退出 虚拟环境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-conda">安装/卸载 Python 包 - 使用 conda</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">安装包</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#python">安装 Python</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">卸载包</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#python-pip">安装 Python 包 - 使用 pip</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pip-python">pip 安安装 Python 包</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">pip 卸载 Python 包</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#congratulation"><strong>Congratulation!</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">脚注</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">实用工具的用法</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">My Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Anaconda 安装以及使用教程</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/anaconda-tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="anaconda">
+<h1>Anaconda 安装以及使用教程<a class="headerlink" href="#anaconda" title="Permalink to this heading"></a></h1>
+<p>有的概念在正文中不方便叙述，我都放在了 <a class="reference internal" href="#id18">脚注</a> 中, 请点击形如 “<a class="footnote-reference brackets" href="#fn0" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>” 的链接查看。点击每一个小标题都可以回到目录。</p>
+<nav class="contents local" id="id2">
+<p class="topic-title">目录</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id3" id="id20">什么是 anaconda</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id21">下载 &amp; 安装 Anaconda</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id22">Anaconda 基础概念和使用方法</a></p></li>
+<li><p><a class="reference internal" href="#step1" id="id23">进阶 step1 - 虚拟环境</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id7" id="id24">虚拟环境简介</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id25">查看有哪些虚拟环境</a></p></li>
+<li><p><a class="reference internal" href="#id9" id="id26">查看当前虚拟环境中安装了哪些包</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id27">创建/删除虚拟环境</a></p></li>
+<li><p><a class="reference internal" href="#id13" id="id28">进入/退出 虚拟环境</a></p></li>
+<li><p><a class="reference internal" href="#python-conda" id="id29">安装/卸载 Python 包 - 使用 conda</a></p></li>
+<li><p><a class="reference internal" href="#python-pip" id="id30">安装 Python 包 - 使用 pip</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#congratulation" id="id31"><strong>Congratulation!</strong></a></p></li>
+<li><p><a class="reference internal" href="#id18" id="id32">脚注</a></p></li>
+</ul>
+</nav>
+<section id="id3">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">什么是 anaconda</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<p>Anaconda = “ana” + “conda”. “ana” 是 “上” 的意思；“conda” 是一个“环境管理软件”，可以负责管理软件包和 虚拟环境. 所以 “anaconda” 就是建立在 “conda” 之上的 “Python 包管理工具”。你可以在 anaconda 中建立不同的 <a class="reference internal" href="#id19">虚拟环境</a> ，每个虚拟环境里面都可以有不同版本的 Python 和包。</p>
+</section>
+<section id="id4">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">下载 &amp; 安装 Anaconda</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<p>下载链接（点击即可下载）： <a class="reference external" href="https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe">https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe</a></p>
+<p>下载完成后，双击运行安装程序，一路点击下一步。我拣几个需要注意的地方讲：
+这里我选择的安装路径是 <code class="docutils literal notranslate"><span class="pre">D:\anaconda3</span></code> （ <strong>记住你的安装路径，后面会用到</strong> ）。</p>
+<img alt="_images/install-path.webp" src="_images/install-path.webp" />
+<p>好的，我们继续点击下一步。当出现下图所示界面（即出现“安装”按钮”时，注意要 <strong>确保勾选</strong> “Register Anaconda3 as the system python” —— 这样会让系统将 Anaconda3 里面包含的 Python 环境作为系统默认的 Python 环境（不然系统可能找不到 Python 环境）。</p>
+<img alt="_images/install.webp" src="_images/install.webp" />
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Anaconda 基础概念和使用方法</a><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<p>安装完成之后应该可以在开始菜单找到一堆东西了，主要包括：</p>
+<p><strong>Anaconda Prompt:</strong> 是命令行界面，可以在里面管理 Python 包 (可以被 import 进来的东西) 和 <a class="reference internal" href="#id19" id="id6"><span>[虚拟环境]</span></a> 。</p>
+<p><strong>Anaconda Navigator:</strong> 可以从里面进入 Jupyter Notebook. Jupyter Notebook 十分适合数据分析用，里面可以进行 “文学式编程” —— 可以在一个 notebook 中同时写代码和文字；每个代码块都可以单独运行查看中间结果，可以很好滴避免写出错误的代码。</p>
+<p>好了，如果只是想要使用 Anaconda 以及其配套的 Jupyter Notebook，看到这里就可以不用往下看了。</p>
+<p>下面的是一些进阶一丢丢的概念，有助于建立起对这些工具的认识。</p>
+</section>
+<section id="step1">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">进阶 step1 - 虚拟环境</a><a class="headerlink" href="#step1" title="Permalink to this heading"></a></h2>
+<p>以为只能安装一个版本的 Python？NONONO，感谢 Conda，我们可以创建多个 <a class="reference internal" href="#id19">虚拟环境</a> , 每个虚拟环境都有自己独特的 Python 版本和包。</p>
+<p>为什么需要虚拟环境呢？因为在计算机领域，不同的工具所依赖的包很可能不兼容 &#64;_&#64; 那难道我们就只能卸载原有的 Python 然后安个新的？Too tedious!! 所以有了 conda 这个工具，它帮我们建立 “虚拟环境”，每个虚拟环境各自独立。这样我们就可以在一个电脑上面享用不同的 Python 了！</p>
+<section id="id7">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">虚拟环境简介</a><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<p>进入 Anaconda Prompt 黑窗口，你应该会看到这样的界面：</p>
+<img alt="_images/anaconda-prompt-cmd.webp" src="_images/anaconda-prompt-cmd.webp" />
+<p>最左边括号内是当前“虚拟环境”名，紧跟其后的是我们当前所在的目录。目前我们是在 Conda 的 <code class="docutils literal notranslate"><span class="pre">base</span></code> 环境中。</p>
+<p><strong>注意</strong> ：万万不要在 <code class="docutils literal notranslate"><span class="pre">base</span></code> 环境下面安装任何包，原因：</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">base</span></code> 环境是 conda 用以管理其他环境的基础环境，如果安装了新的包，可能会破坏此环境，导致其他所有的虚拟环境坏掉。</p></li>
+<li><p>对大多数用户而言，<code class="docutils literal notranslate"><span class="pre">base</span></code> 环境提供的包足够用了。常见的已经提供的包有：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>: 用于数值计算;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>: 读取 Excel 表格、进行数据处理等；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>: 用于绘图；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy</span></code>: 用于科学计算；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>: 用于机器学习；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">requests</span></code>: 用于网络请求；</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id8">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">查看有哪些虚拟环境</a><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<p>在 Anaconda Prompt 中输入 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code> ，可以看到当前系统中所有的虚拟环境。如果你没有创建过虚拟环境，应该仅会看到 <code class="docutils literal notranslate"><span class="pre">base</span></code> 环境。我的环境如下图：</p>
+<img alt="_images/conda-env-list.webp" src="_images/conda-env-list.webp" />
+<p>可以看出我有三个虚拟环境，名字分别为 <code class="docutils literal notranslate"><span class="pre">base</span></code>, <code class="docutils literal notranslate"><span class="pre">normal</span></code> 和 <code class="docutils literal notranslate"><span class="pre">torch</span></code>, 位置分别在 <code class="docutils literal notranslate"><span class="pre">C:\Users\DELL\miniconda3</span></code>, <code class="docutils literal notranslate"><span class="pre">C:\Users\DELL\miniconda3\envs\normal</span></code> 和 <code class="docutils literal notranslate"><span class="pre">C:\Users\DELL\miniconda3\envs\torch</span></code>。</p>
+<p>目前我所在的是 <code class="docutils literal notranslate"><span class="pre">base</span></code> 环境, 你可以看到那一行有一个 <code class="docutils literal notranslate"><span class="pre">*</span></code> 号。</p>
+</section>
+<section id="id9">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">查看当前虚拟环境中安装了哪些包</a><a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<p>在 Anaconda Prompt 中输入 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> 即可。看看我的 base 里面有哪些包 (非常非常多——因为不光有 Python 包，还有 Python 运行必须要用的包 &#64;_&#64; 我只截取一部分):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># packages in environment at C:\Users\DELL\miniconda3:</span>
+<span class="c1">#</span>
+<span class="c1"># Name                    Version                   Build  Channel</span>
+<span class="n">matplotlib</span>                <span class="mf">3.7.2</span>           <span class="n">py311haa95532_0</span>
+<span class="n">matplotlib</span><span class="o">-</span><span class="n">base</span>           <span class="mf">3.7.2</span>           <span class="n">py311hf62ec03_0</span>
+<span class="n">matplotlib</span><span class="o">-</span><span class="n">inline</span>         <span class="mf">0.1.6</span>           <span class="n">py311haa95532_0</span>
+<span class="n">numpy</span>                     <span class="mf">1.26.0</span>          <span class="n">py311hdab7c0b_0</span>
+<span class="n">numpy</span><span class="o">-</span><span class="n">base</span>                <span class="mf">1.26.0</span>          <span class="n">py311hd01c5d8_0</span>
+<span class="n">pillow</span>                    <span class="mf">10.0.1</span>          <span class="n">py311h045eedc_0</span>
+<span class="n">pip</span>                       <span class="mf">23.1.2</span>          <span class="n">py311haa95532_0</span>
+<span class="n">python</span>                    <span class="mf">3.11.4</span>               <span class="n">he1021f5_0</span>
+<span class="n">requests</span>                  <span class="mf">2.32.3</span>                   <span class="n">pypi_0</span>    <span class="n">pypi</span>
+<span class="n">setuptools</span>                <span class="mf">67.8.0</span>          <span class="n">py311haa95532_0</span>
+<span class="n">sqlite</span>                    <span class="mf">3.41.2</span>               <span class="n">h2bbff1b_0</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">创建/删除虚拟环境</a><a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<section id="id11">
+<h4>创建虚拟环境<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h4>
+<p>还是在 Anaconda Prompt 中，输入:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">test</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>就可以创建一个名为 <code class="docutils literal notranslate"><span class="pre">test</span></code> 的环境了。解释一下命令参数：</p>
+<dl class="option-list">
+<dt><kbd><span class="option">--name</span></kbd></dt>
+<dd><p>后面接环境的名字。最好英文，不然可能会出奇奇怪怪的 bug.
+这里我用的名字叫 “test”.</p>
+</dd>
+<dt><kbd><span class="option">-y</span></kbd></dt>
+<dd><p>“yes” 的意思。conda 在你执行命令前都会问你是否继续，我
+加了 <code class="docutils literal notranslate"><span class="pre">-y</span></code> 参数就可以默认回答 “yes”.</p>
+</dd>
+</dl>
+<p>现在输入 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">list</span></code> 应该就会发现多了一个 <code class="docutils literal notranslate"><span class="pre">test</span></code> 环境。</p>
+</section>
+<section id="id12">
+<h4>删除虚拟环境<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h4>
+<p>删除虚拟环境的命令为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">remove</span> <span class="o">--</span><span class="n">name</span> <span class="n">test</span> <span class="o">--</span><span class="nb">all</span>
+</pre></div>
+</div>
+<dl class="option-list">
+<dt><kbd><span class="option">--name</span></kbd></dt>
+<dd><p>后面接环境的名字, 我要删除 test 环境</p>
+</dd>
+<dt><kbd><span class="option">--all</span></kbd></dt>
+<dd><p>这个参数表示删除这个环境中所有的包。</p>
+</dd>
+</dl>
+<p>上面这两个参数都必须要有。</p>
+</section>
+</section>
+<section id="id13">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">进入/退出 虚拟环境</a><a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
+<p>在 conda 的术语里面，进入一个虚拟环境就是“激活”它。所以要进入刚才创建的环境，我们输入:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">test</span>
+</pre></div>
+</div>
+<p>就可以进入了。进入虚拟环境后我们就可以在这个环境中安装包了。</p>
+<p>退出虚拟环境的命令为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">deactivate</span>
+</pre></div>
+</div>
+</section>
+<section id="python-conda">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">安装/卸载 Python 包 - 使用 conda</a><a class="headerlink" href="#python-conda" title="Permalink to this heading"></a></h3>
+<p>刚才建立的 虚拟环境是一个空环境，啥也没有哦。不信你 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> 看一看 ^_^ 所以我们先安</p>
+<section id="id14">
+<h4>安装包<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h4>
+<p>安装包的命令格式为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+<span class="c1"># 带尖括号的表示这个得被替换掉。</span>
+
+<span class="c1"># 方括号括起来的是“可选的”。这里 options 就是前面创建虚拟环境时</span>
+<span class="c1"># 用的一些参数，如 --name, -y 等。</span>
+
+<span class="c1"># 这两个是编程界的一种惯例吧，知道了挺好的。</span>
+</pre></div>
+</div>
+</section>
+<section id="python">
+<h4>安装 Python<a class="headerlink" href="#python" title="Permalink to this heading"></a></h4>
+<p>首先得安装一个 Python 吧，我想安装一个 python 3.9 (我不喜欢太新的，怕出古怪的 bug). Anaconda Prompt 输入下面命令:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>就会自动安装了。如果你不指定版本，则默认安装最新版本。</p>
+</section>
+<section id="id15">
+<h4>卸载包<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h4>
+<p>卸载包的命令格式为:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">remove</span> <span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>删除刚才那个 python 的命令就是:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">remote</span> <span class="n">python</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-pip">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">安装 Python 包 - 使用 pip</a><a class="headerlink" href="#python-pip" title="Permalink to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> 是 “Package Installer for Python”. 它是 Python 官方提供的包管理工具（conda 是一个老牌子的环境管理工具，这俩有点相似）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span></code> 会从 anaconda 的软件仓库里面下载包，而 <code class="docutils literal notranslate"><span class="pre">pip</span></code> 会从 <a class="reference internal" href="#pypi" id="id16"><span>[PyPI]</span></a> 下载包。有的包可能只有 PyPI 有。</p>
+<p>先安装个 pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">pip</span> <span class="o">-</span><span class="n">y</span>
+</pre></div>
+</div>
+<section id="pip-python">
+<h4>pip 安安装 Python 包<a class="headerlink" href="#pip-python" title="Permalink to this heading"></a></h4>
+<p>很简单啦:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>但是！有的包这么安装可能名字不对！所以最好是去 PyPI 上搜一下包名，用 PyPI 提供的命令安装。 PyPI 网址： <a class="reference external" href="https://pypi.org/">https://pypi.org/</a> .</p>
+</section>
+<section id="id17">
+<h4>pip 卸载 Python 包<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="congratulation">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><strong>Congratulation!</strong></a><a class="headerlink" href="#congratulation" title="Permalink to this heading"></a></h2>
+<p>学会了这些，你已经超越了大多数 Python 用户了！</p>
+</section>
+<section id="id18">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">脚注</a><a class="headerlink" href="#id18" title="Permalink to this heading"></a></h2>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="fn0" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>点击以后你就会跳转到这里了。再点击一下左边的 <cite>[1]</cite> 就会返回跳转前的位置 ^_^.</p>
+</aside>
+</aside>
+<div role="list" class="citation-list">
+<div class="citation" id="id19" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">虚拟环境</a><span class="fn-bracket">]</span></span>
+<p>虚拟环境是指在一个 Python 环境中安装多个 Python 环境，每个环境都有自己的 Python 版本和包。这样可以避免不同项目之间的包冲突。</p>
+</div>
+<div class="citation" id="pypi" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id16">PyPI</a><span class="fn-bracket">]</span></span>
+<p>Python Package Index (Python 包索引）. 是 Python 官方提供的包仓库。</p>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="git_usage.html" class="btn btn-neutral float-left" title="git 用法教程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tools.html" class="btn btn-neutral float-right" title="实用工具的用法" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, jmlv.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
