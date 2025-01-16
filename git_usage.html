@@ -62,6 +62,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#id4">字符编码修改</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">查看不同提交、分支以及暂存区和工作区的差异</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id6">仓库、分支管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-rebase">让提交历史更简洁 git rebase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stash">临时保存但不提交 - stash</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="anaconda-tutorial.html">Anaconda 安装以及使用教程</a></li>
@@ -180,6 +182,17 @@ $ export LESSCHARSET=utf-8
 </dd>
 </dl>
 <p>git pull:</p>
+</section>
+<section id="git-rebase">
+<h2>让提交历史更简洁 git rebase<a class="headerlink" href="#git-rebase" title="Permalink to this heading"></a></h2>
+<p>假设当前在 branch-1 上，要把 branch-1 上的修改合并到 master 上，但是不想把</p>
+</section>
+<section id="stash">
+<h2>临时保存但不提交 - stash<a class="headerlink" href="#stash" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>暂存: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code></dt><dd><p>这会将工作目录、已经被 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> 到暂存区的修改贮存到一个栈中。</p>
+</dd>
+</dl>
 </section>
 </section>
 

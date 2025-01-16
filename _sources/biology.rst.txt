@@ -40,9 +40,15 @@ VHH 的 人源化 (hummanize)
 
 抗体由两条全同的重链和两条全同的轻链构成. 每条链又分为多个 domain, 每个 domain 可能又分为不同的 region. 每个重链都会和一个轻链通过二硫键配对; 两个重链-轻链对再通过重链间形成二硫键形成一个 "Y" 形结构. 
 
+典型长度：轻链通常在 211~217 个氨基酸长度; 重链通常在
+
 重链包含 VH1, CH1, CH2, CH3 四个 domain. 第一个字母 V/H 表示 variable/constant (可变/恒定), 第二个字母表示这是重链 (Heavy chain), 第三个数字就是编号.
 
 轻链包含 VL, CL 两个 domain. 由于 Varialb 和 Constant 只有一个, 所以后面不带编号.
+
+.. image:: imgs/antibody-structure.webp
+
+image taken from https://opig.stats.ox.ac.uk/webapps/sabdab-sabpred/static/img/antibody_schematic.png
 
 Fab
 ----------
