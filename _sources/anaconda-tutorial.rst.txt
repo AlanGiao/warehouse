@@ -23,11 +23,19 @@ Anaconda = "ana" + "conda". "ana" 是 “上” 的意思；“conda” 是一�
 下载完成后，双击运行安装程序，一路点击下一步。我拣几个需要注意的地方讲：
 这里我选择的安装路径是 ``D:\anaconda3`` （ **记住你的安装路径，后面会用到** ）。
 
+<<<<<<< HEAD
 .. image:: imgs/anaconda-tutorial/install-path.webp
 
 好的，我们继续点击下一步。当出现下图所示界面（即出现“安装”按钮”时，注意要 **确保勾选** "Register Anaconda3 as the system python" —— 这样会让系统将 Anaconda3 里面包含的 Python 环境作为系统默认的 Python 环境（不然系统可能找不到 Python 环境）。
 
 .. image:: imgs/anaconda-tutorial/install.webp
+=======
+.. image:: imgs/anaconda-tutorial/install-path.png
+
+好的，我们继续点击下一步。当出现下图所示界面（即出现“安装”按钮”时，注意要 **确保勾选** "Register Anaconda3 as the system python" —— 这样会让系统将 Anaconda3 里面包含的 Python 环境作为系统默认的 Python 环境（不然系统可能找不到 Python 环境）。
+
+.. image:: imgs/anaconda-tutorial/install.png
+>>>>>>> 2d4e09f83f13d2d5a9e3bfc23ad595d3f7ec1b7e
 
 
 Anaconda 基础概念和使用方法
@@ -57,7 +65,11 @@ Anaconda 基础概念和使用方法
 
 进入 Anaconda Prompt 黑窗口，你应该会看到这样的界面：
 
+<<<<<<< HEAD
 .. image:: imgs/anaconda-tutorial/anaconda-prompt-cmd.webp
+=======
+.. image:: imgs/anaconda-tutorial/anaconda-prompt-cmd.png
+>>>>>>> 2d4e09f83f13d2d5a9e3bfc23ad595d3f7ec1b7e
 
 最左边括号内是当前“虚拟环境”名，紧跟其后的是我们当前所在的目录。目前我们是在 Conda 的 ``base`` 环境中。
 
@@ -80,7 +92,11 @@ Anaconda 基础概念和使用方法
 
 在 Anaconda Prompt 中输入 ``conda env list`` ，可以看到当前系统中所有的虚拟环境。如果你没有创建过虚拟环境，应该仅会看到 ``base`` 环境。我的环境如下图：
 
+<<<<<<< HEAD
 .. image:: imgs/anaconda-tutorial/conda-env-list.webp
+=======
+.. image:: imgs/anaconda-tutorial/conda-env-list.png
+>>>>>>> 2d4e09f83f13d2d5a9e3bfc23ad595d3f7ec1b7e
 
 可以看出我有三个虚拟环境，名字分别为 ``base``, ``normal`` 和 ``torch``, 位置分别在 ``C:\Users\DELL\miniconda3``, ``C:\Users\DELL\miniconda3\envs\normal`` 和 ``C:\Users\DELL\miniconda3\envs\torch``。
 
