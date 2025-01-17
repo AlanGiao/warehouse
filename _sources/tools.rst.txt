@@ -52,3 +52,10 @@ Docutils 命令汇总: https://docutils.sourceforge.io/docs/ref/rst/directives.h
 命令 (directives) 是形如 ``.. directive::`` 的单行字符; 其与其他文本行以一个及以上的空行分隔. 常用的 directive 列举如下.
 
 ``.. contents:: [<Some Text>]``: 生成目录.
+
+
+Tmux
+=====
+
+类似 ``screen`` 命令，但是更强大一点（screen 比较古老，功能少）。教程： 
+https://www.ruanyifeng.com/blog/2019/10/tmux.html
