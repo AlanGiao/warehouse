@@ -1,0 +1,70 @@
+######################
+2025 年 1 季度
+######################
+
+.. contents:: 目录
+
+
+新的词汇 - 词汇是知识的桥梁
+#############################
+
+
+Python
+###########
+
+Module（模块） 是 py 脚本。直接运行 Module 会使得 ``__name__`` 变成 ``'__main__'``.
+一系列 Modules 存放在一个文件夹内，这个文件夹就是 Package（包）. Package 内必须有 ``__init__.py`` 以让 Python 知道这是一个包。
+
+``__pycache__`` 文件夹储存编译后的 python Module (``.pyc`` 文件)
+
+
+Math
+######
+
+p-norm
+    .. math:: 
+        ||\vec x||_p = \left(\sum_{i=1}^n |x_i|^p \right)^{1/p}
+
+
+
+Biology
+###########
+
+Neutralizing/Binding antibody
+    中和抗体：可以中和抗原功能的一种抗体；
+
+    结合抗体：可以结合抗原，但是不能中和掉致病原的生物功能。通常用于向免疫系统标记抗原。
+
+Monoclonal/Polyclonal antibody
+    单克隆抗体：仅结合特定抗原的一个表位。
+
+    多克隆抗体：结合特定抗原的多个表位，由浆细胞的多个不同细胞谱系分泌。
+
+Cell lineage (细胞谱系)
+    是时间上连续的、从祖先延续到其后代的一系列细胞。
+
+Germline (germ line)
+    生殖细胞谱系。可以产生配子（gametes）的细胞谱系。
+
+
+English
+#########
+
+#. comes to naught: 成空（没有达到预期目标/成功）
+
+#. name-calling: 骂人，中伤
+
+#. documentary: 纪录片
+
+
+VS Code 小技巧
+###############
+
+比较两个文件的不同
+===================
+
+单纯比较两个文件的不同
+    ``Ctrl + Shift + P`` 打开命令面板，输入 ``diff``, 选择 ``Compare Active File with...``.
+
+
+

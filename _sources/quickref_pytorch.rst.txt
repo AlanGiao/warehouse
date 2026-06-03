@@ -1,0 +1,149 @@
+PyTorch 速查手册
+===================
+
+.. contents::
+
+保存通用检查点
+------------------
+
+参考: https://pytorch-cn.com/tutorials/recipes/recipes/saving_and_loading_a_general_checkpoint.html#id7
+
+例子::
+
+    # 附加信息
+    EPOCH = 5
+    PATH = "model.pt"
+    LOSS = 0.4
+
+    torch.save({
+                'epoch': EPOCH,
+                'model_state_dict': net.state_dict(),
+                'optimizer_state_dict': optimizer.state_dict(),
+                'loss': LOSS,
+                }, PATH)
+
+加载检查点::
+
+    torch.load(PATH)
+
+打印完整张量
+----------------
+
+    torch.set_printoptions(profile="full")
+    print(x) # prints the whole tensor
+    torch.set_printoptions(profile="default") # reset
+    print(x) # prints the truncated tensor
+    ————————————————
+    版权声明：本文为CSDN博主「cz_Young」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+    原文链接：https://blog.csdn.net/qq_39355160/article/details/106208467
+
+随机数
+-------
+
+``torch.rand`` [0, 1) 之间的均匀分布；``torch.randn``: 标准正态分布。
+
+损失函数
+--------
+
+CrossEntropyLoss
+^^^^^^^^^^^^^^^^
+
+https://docs.pytorch.org/docs/2.12/generated/torch.nn.CrossEntropyLoss.html 
+
+当 Target 是整数 indice 时，输入输出形状
+
+- Input (C), Target (), Output ()
+
+- Input (N, C), Target (N), Output (N)
+
+- Input (N, C, d1, d2, ..., dk),
+  Target (N, d1, d2, ..., dk),
+  Output (N, d1, d2, ..., dk)
+
+BCELoss
+^^^^^^^
+
+https://docs.pytorch.org/docs/2.12/generated/torch.nn.BCELoss.html
+
+x 必须在 (0, 1) 范围内。
+
+BCEWithLogitsLoss
+^^^^^^^^^^^^^^^^^
+
+输入可以是 un-normalized logits. https://docs.pytorch.org/docs/2.12/generated/torch.nn.BCEWithLogitsLoss.html
+Input 和 target 形状必须相同。输出形状：若 reduction='none', 则和 input/target 相同。
+
+学习率调度
+-----------
+
+参考代码：https://blog.csdn.net/fengbingchun/article/details/142261770
+
+LinearLR: https://docs.pytorch.org/docs/2.12/generated/torch.optim.lr_scheduler.LinearLR.html
+
+.. code-block:: python
+
+    import torch.optim as optim
+    # 已经设定了 optimizer
+    scheduler = optim.lr_scheduler.LinearLR(
+        optimizer, start_factor=0.2, end_factor=0.8, total_iters=5
+        )
+    # some operations ...
+    scheduler.step()
+    print("Current lr:", scheduler.get_last_lr())
+
+
+Subset - 分割数据集、采样子集
+-------------------------------
+
+.. code-block:: python
+
+    # 按索引采样
+    subset = Sampler(origin_dataset, range(10))
+    # 随机分割
+    train_size = int(0.8 * len(full_dataset))      # full_dataset是整个数据集,取0.8的比例作为训练集
+    test_size = len(full_dataset) - train_size
+    train_dataset, test_dataset = torch.utils.data.random_split(
+        full_dataset, [train_size, test_size], 
+        generator=torch.Generator().manual_seed(42))
+
+但是！这个 Subset 处理后的 Dataset 就是一个 Subset 类的实例了，所以原来的 dataset 类中定义的方法、属性可能丢失。这时要继承 Subset 创建自己的类。参见 https://www.cnblogs.com/orion-orion/p/15906086.html
+
+一般来说，创建的子类只需要定义 __init__ 和原 dataset 自定义方法的 wrapper 就够了。例如
+
+.. code-block:: python
+
+    class CustomDataset(Subset):
+        def __init__(self, dataset, indices):
+            super().__init__(dataset, indices)
+            self.dataset = dataset
+        def custom_method(self, **kwargs):
+            return self.dataset.custom_method()
+    from torch.utils.data import Subset
+
+    class CustomDataset:
+        def __init__(self, dataset, indices):
+            super().__init__(dataset, indices)
+            self.dataset = dataset
+        def custom_method(self, **kwargs):
+            return self.dataset.custom_method()
+
+
+PyTorch 源码：https://github.com/pytorch/pytorch/blob/v2.12.0/torch/utils/data/dataset.py#L386
+
+
+Sampler
+-------
+
+概念上有两种 Sampler, 一种是负责采样生成 *单个*  index 的 Sampler， ``torch.utils.data.Sampler`` 就是这种；另一种是负责采样生成 *一批* index 的 Sampler， ``torch.utils.data.BatchSampler`` 就是这种。
+
+DDP
+---
+
+Data Distributed Parallel (DDP). 比 DataParallel 快，也更复杂。我找到个不错的教程： https://github.com/KaiiZhang/DDP-Tutorial/blob/main/DDP-Tutorial.md
+
+查看模型设备
+--------------
+
+.. code-block:: python
+
+    next(model.parameters()).device

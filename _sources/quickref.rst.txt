@@ -1,0 +1,391 @@
+速查手册
+========
+
+.. contents::
+
+Emacs
+-------------
+
+是否使用真实 TAB 缩进:
+    ``indent-tabs-mode``
+
+一个 TAB 的宽度:
+    ``setq-default tab-width 4``
+
+VIM
+---
+
+修改折叠方式：``set foldmethod=xxx``. 可通过 `:h fdm` 查看可选的 `xxx`.
+
+快速跳转::
+
+    :cfile ~/.note/flist.txt  " 加载 quickfix 列表
+
+    " flist.txt 示例（默认 errorformat）
+    a.txt:15:1 message  " file:ln:col <message>
+
+跳转到第 `N` 个条目： ``cc N``.
+
+RestructuredText (RST) 
+------------------------------
+
+Docutils 用法
+^^^^^^^^^^^^^^
+
+可以把 rst 文本文件转为 LaTeX/HTML/texinfo 等格式。
+
+索引页面: https://docutils.sourceforge.io/docs/index.html
+
+DocUtils 用法简介: https://docutils.sourceforge.io/README.html#quick-start
+
+完整用法: https://docutils.sourceforge.io/docs/user/tools.html
+
+Docutils 参数汇总: https://docutils.sourceforge.io/docs/user/config.html. 常用参数如下:
+
+--toc-entry-backlinks   Link from section headers to TOC entries.  (default)
+
+--toc-top-backlinks     Link from section headers to the top of the TOC.
+
+--no-toc-backlinks      Disable backlinks to the table of contents.
+
+决定输出到什么文件: 
+
+--writer    One of ["html", "html4", "html5", "latex", "xelatex", "odt", "xml", "pseudoxml", "manpage", "pep_html", "s5"]
+
+
+RST 用法官方文档
+^^^^^^^^^^^^^^^^^^
+
+https://docutils.sourceforge.io/rst.html
+
+quick ref: https://docutils.sourceforge.io/docs/user/rst/quickref.html
+
+Docutils 命令汇总: https://docutils.sourceforge.io/docs/ref/rst/directives.html
+
+命令 (directives) 是形如 ``.. directive::`` 的单行字符; 其与其他文本行以一个及以上的空行分隔. 常用的 directive 列举如下.
+
+``.. contents:: [<Some Text>]``: 生成目录.
+
+
+Tmux (Linux Only)
+-------------------
+
+类似 ``screen`` 命令，但是更强大一点（screen 比较古老，功能少）。教程： 
+https://www.ruanyifeng.com/blog/2019/10/tmux.html
+
+
+LaTeX 转图片
+------------
+
+mathtex（可本地部署）: 一个 C 程序，可将 LaTeX 表达式直接渲染为 PNG。
+项目地址：https://github.com/garyhouston/mathtex
+
+Huang 服务器深度学习环境配置
+------------------------------
+
+2026 年升级到了 CentOS7。在 gu01 上运行深度学习程序的话，需要 cuda11.3.
+
+有两种配置，第一种是 torch 1.12.0 + cuda 11.3 + python 3.8, 第二种是 torch 2.4 + python 3.10. 前者要先安装 PyTorch，后者要先安装 NumPy。
+
+**Torch 1.12 版本的环境安装步骤如下：**
+
+步骤1，创建 conda 虚拟环境，python 3.8::
+
+    conda create -n py38cu113 python=3.8
+
+步骤2，安装 PyTorch::
+
+    pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 torchaudio==0.12.0 --extra-index-url https://download.pytorch.org/whl/cu113
+
+步骤3，安装其他常用库，这里是确定没有问题的版本::
+
+    biopython                        1.78             py38h497a2fe_2            https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+    numpy                            1.24.4           py38h59b608b_0            https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+    pandas                           1.4.4            py38h47df419_0            https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+    torchmetrics
+
+**建议** 除了建立 conda 虚拟环境外，所有其他包都用 pip 安装。特别是 `torchmetrics`，要是用 conda, 会导致找不到已安装的 PyTorch，结果就是会安装一个新的 PyTorch 给你，还是 CPU 版本的。后安装的 PyTorch 会覆盖先安装的，结果就是用不了 GPU 了（torch.cuda.is_available() 是 False）。
+
+**Torch 2.4 版本的环境安装步骤如下：**
+
+Step 1, NumPy::
+
+    conda install numpy=1.26.4
+
+Step 2, PyTorch::
+
+    pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu118
+
+Pandas 版本必须 1.4::
+
+    pip install pandas==1.4
+
+
+SLURM
+-------
+
+基本概念
+^^^^^^^^^
+
+概念1_ Job、Step、task
+
+.. _概念1: https://stackoverflow.com/questions/46506784/how-do-the-terms-job-task-and-step-relate-to-each-other
+
+:Job: ``sbatch`` 创建 job
+
+:step: ``srun`` 创建 step
+
+:task: ``srun --ntask 10`` 就会创建 10 个task
+
+``Job`` 负责抢占总资源（分配资源池子），``step`` 则是在总资源的前提下，进行 "sub-allocation".
+
+请求任务（task）的两种可能方式：
+
+1. 在 Job 阶段： ``--ntask`` or ``--ntasks-per-node``.
+2. Step level: ``--ntask``.
+
+CPU 只会在创建 step 阶段分配。 ``--cpus-per-task``.
+
+Job, step, task 概念演示::
+
+	# Source - https://stackoverflow.com/a/46532581
+	# Posted by damienfrancois, modified by community. See post 'Timeline' for change history
+	# Retrieved 2026-05-31, License - CC BY-SA 4.0
+
+	#SBATCH --nodes 8
+	#SBATCH --tasks-per-node 8
+	# The job requests 64 CPUs, on 8 nodes.    
+
+	# First step, with a sub-allocation of 8 tasks (one per node) to create a tmp dir. 
+	# No need for more than one task per node, but it has to run on every node
+	srun --nodes 8 --ntasks 8 mkdir -p /tmp/$USER/$SLURM_JOBID
+
+	# Second step with the full allocation (64 tasks) to run an MPI 
+	# program on some data to produce some output.
+	srun process.mpi <input.dat >output.txt
+
+	# Third step with a sub allocation of 48 tasks (because for instance 
+	# that program does not scale as well) to post-process the output and 
+	# extract meaningful information
+	srun --ntasks 48 --nodes 6 --exclusive postprocess.mpi <output.txt >result.txt &
+
+	# Fourth step with a sub-allocation on a single node   
+	# to compress the raw output. This step runs at the same time as 
+	# the previous one thanks to the ampersand `&` 
+	srun --ntasks 12 --nodes 1 --exclusive compress.mpi output.txt &
+
+	wait
+
+
+概念2_：Node, task, core, CPU
+
+按照 stackoverflow 文章： `概念2`_, core is part of processor. CPU = Central Processing Unit, so a CPU is a processor.
+
+.. _概念2: https://stackoverflow.com/questions/65603381/slurm-nodes-tasks-cores-and-cpus
+
+
+查看任务资源用量
+^^^^^^^^^^^^^^^^^
+
+``sstat``: 查看任务资源用量。我是从 `stackoverflow 问题1`_ 中知道这个命令的。
+
+.. _stackoverflow 问题1: https://stackoverflow.com/questions/53636752/slurm-why-use-srun-inside-sbatch
+
+用法::
+
+	sstat -j job.step
+
+但是，要想用这个命令查看资源占用，得在 ``sbatch`` 时用 ``srun`` 创建 step， **但是**，我们服务器的时间是错的，srun 不能正常运行，所以不出意外，应该是用不成这个命令了。
+
+:SLURM modes: 分为 interactive/batch mode. 参阅 `Santa Clara 大学的教程`_
+
+.. _Santa Clara 大学的教程: https://www.scu.edu/wave/wave-hpc/tutorials/slurm-job-tutorials/batch-slurm-jobs/
+
+
+sbatch
+^^^^^^^
+
+--ntasks		至多这么多个任务。默认一个 node 一个 task。
+
+--cpus-per-task		每个任务的cpu数量。
+
+--get-user-env		让 sbatch 获取登录环境下的环境变量。
+
+
+Perl
+----
+
+``split /regexp/, $_``
+
+``join "|", list``
+
+循环::
+
+    my @arr = qw(a b c d e f);
+
+    # for
+    for my $v (@arr) {
+      say "value: $v";
+    }
+
+    # foreach
+    foreach my $v (@arr) {
+      say "value: $v";
+    }
+
+* ``for``, ``foreach`` 的循环变量可以省略，默认是 ``$_``.
+* ``foreach`` 的时候，循环变量是指向值的指针。所以在循环中修改变量会直接修改列表。
+
+SQLite
+--------
+
+:Cursor_: 能够让数据库能够遍历数据库中的记录，其支持遍历时处理。 cursor 支持一次性处理整个查询结果集。
+
+.. _Cursor: https://en.wikipedia.org/wiki/Cursor_(databases)
+
+:Transaction: 就是一笔交易（逻辑抽象）。
+
+问题：sqlite3 和 MySQL 的区别是什么？他俩的命令有点相似。
+
+    ... and allows accessing the database using a nonstandard variant of the SQL query language. [2]_
+
+:SQL: Structured Query Language. 虽然是 ANSI 标准，但是也有不同的 flavours [3]_.
+
+
+sqlite 介绍
+^^^^^^^^^^^^^^^
+
+sqlite 不需要配置。支持 SQL92 的大多数查询功能 [1]_。
+
+sqlite 创建的表都在 ``sqlite_master`` 这个 built-in 表中。
+
+sqlite3 教程：https://docs.python.org/3/library/sqlite3.html
+
+
+基本命令/语句
+^^^^^^^^^^^^^^^
+
+查看有哪些表：``.tables``
+
+查看一个表的所有记录： ``SELECT * FROM <table_name>``。 Python sqlite::
+
+    import sqlite3
+
+    # 连接到已存在的数据库（若不存在则直接创建）
+    conn = sqlite3.connect('你的数据库文件名.db')
+    cursor = conn.cursor()
+
+    # 示例：查询数据库中的所有表
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    print(cursor.fetchall())
+
+    conn.close()
+
+``LIMIT``: 限制返回的 record 数量。 example::
+
+    SELECT * FROM table_1 LIMIT 10;
+
+最多返回 10 个记录（10 行）。
+
+``OFFSET``: 跳过多少个记录。可以和 ``LIMIT`` 一起使用 :
+
+    SELECT * FROM table_1 LIMIT 10 OFFSET 20;
+
+就会跳过前面 20 个记录，返回第 21-30 个记录。这个可以用在 dataset 定义的时候。
+
+``ATTACH`` - 选择一个数据库，以后所有的 SQLite 语句都在这个数据库上执行。 语法::
+
+    ATTACH DATABASE file_name AS database_name;
+
+``DETACH DATABASE`` - 取消 attach 数据库。 语法::
+
+    DETACH DATABASE 'Alias-Name';
+
+
+PyTorch + SQLite 注意事项
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+dataset 和 dataloader 有时会采用多进程。谷歌 Gemini 给出的解决方案如下::
+
+    import sqlite3
+    import torch
+    from torch.utils.data import Dataset
+
+
+    class SQLiteDataset(Dataset):
+
+        def __init__(self, db_path, table_name):
+            self.db_path = db_path
+            self.table_name = table_name
+
+            # 1. 临时连接以获取总行数
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            cursor.execute(f"SELECT COUNT(*) FROM {self.table_name}")
+            self.total_rows = cursor.fetchone()[0]
+            conn.close()
+
+            # 2. 将连接设为 None，延迟到 __getitem__ 中初始化
+            self.conn = None
+            self.cursor = None
+
+        def __len__(self):
+            return self.total_rows
+
+        def __getitem__(self, idx):
+            # 3. 核心：多进程 DataLoader 安全初始化
+            if self.conn is None:
+                self.conn = sqlite3.connect(self.db_path)
+                self.cursor = self.conn.cursor()
+
+            # 4. 利用 OFFSET 精准按索引跳过行数，读取单行
+            # 假设你的表有 (id, feature_1, feature_2, label) 等列
+            self.cursor.execute(
+                f"SELECT * FROM {self.table_name} LIMIT 1 OFFSET ?", (idx,)
+            )
+            row = self.cursor.fetchone()
+
+            # 5. 解析数据并转换为 Tensor
+            # 假设跳过 self_id(第0列)，取后面的特征和标签
+            features = torch.tensor(row[1:-1], dtype=torch.float32)
+            label = torch.tensor(row[-1], dtype=torch.long)
+
+            return features, label
+
+
+[Schema table]
+^^^^^^^^^^^^^^^^^^
+
+https://www.sqlite.org/schematab.html
+
+每个 SQLite 数据库都包含一个 “schema table”，存储数据库的 schema. schema 描述数据库中所有其他 table, indexes, triggers, views. Schema 的结构如下::
+
+    CREATE TABLE sqlite_schema(
+        type text,
+        name text,
+        tbl_name text,
+        rootpage integer,
+        sql text
+    );
+
+- 最后于一行 ``text`` 是描述。
+
+Schema table 在数据库中可通过名称 "sqlite_schema", "main.sqlite_schema" 引用。考虑历史兼容性，"sqlite_master" 也可以引用 schema.
+
+这是按照 Python SQLite 库的教程创建的数据库的 schema::
+
+    >>> res = cur.execute("select * from sqlite_master")
+    >>> res.fetchone()
+    ('table', 'movie', 'movie', 2, 'CREATE TABLE movie(title, year, score)')
+
+
+
+.. [1] https://docs.python.org/3/library/sqlite3.html
+.. [2] https://docs.python.org/3/library/sqlite3.html#tutorial
+.. [3] https://www.w3schools.com/sql/sql_intro.asp
+
+
+Makefile
+--------
+
+https://seisman.github.io/how-to-write-makefile/rules.html

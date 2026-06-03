@@ -1,0 +1,39 @@
+=======================================================
+NVIDIA GeForce RTX 4070 Windows 11 配置 CUDA 踩坑记录
+=======================================================
+
+解决方案见 github issue: https://github.com/ntnu-arl/aerial_gym_simulator/issues/1. 
+下面简述问题和解决方案.
+
+运行模型时候, 出现报错, 报错代码::
+
+    RuntimeError: nvrtc: error: invalid value for --gpu-architecture (-arch) nvrtc compilation failed: 
+
+
+我的环境 (GeForce RTX 4070, CUDA 11.7)::
+
+    $ nvidia-smi
+    +-----------------------------------------------------------------------------------------+
+    | NVIDIA-SMI 572.83                 Driver Version: 572.83         CUDA Version: 12.8     |
+    |-----------------------------------------+------------------------+----------------------+
+    | GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+    |                                         |                        |               MIG M. |
+    |=========================================+========================+======================|
+    |   0  NVIDIA GeForce RTX 4070 ...  WDDM  |   00000000:01:00.0 Off |                  N/A |
+    | N/A   44C    P8              1W /   80W |     116MiB /   8188MiB |      0%      Default |
+    |                                         |                        |                  N/A |
+    +-----------------------------------------+------------------------+----------------------+
+
+::
+
+    $ nvcc --version
+    nvcc: NVIDIA (R) Cuda compiler driver
+    Copyright (c) 2005-2022 NVIDIA Corporation
+    Built on Tue_May__3_19:00:59_Pacific_Daylight_Time_2022
+    Cuda compilation tools, release 11.7, V11.7.64
+    Build cuda_11.7.r11.7/compiler.31294372_0
+
+解决方法: 更新 torch::
+
+    pip install torch==1.13.0+cu116 torchaudio==0.13.0+cu116 torchvision==0.14.0+cu116 --index-url https://download.pytorch.org/whl/cu116
