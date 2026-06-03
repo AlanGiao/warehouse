@@ -120,3 +120,18 @@ git pull:
 
 暂存: ``git stash``
     这会将工作目录、已经被 ``git add`` 到暂存区的修改贮存到一个栈中。
+
+设置远程仓库
+============
+
+https://docs.github.com/en/get-started/git-basics/managing-remote-repositories#adding-a-remote-repository
+
+.. code-block:: bash
+
+    $ git remote add origin https://github.com/OWNER/REPOSITORY.git
+    # Set a new remote
+
+    $ git remote -v
+    # Verify new remote
+    > origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+    > origin  https://github.com/OWNER/REPOSITORY.git (push)

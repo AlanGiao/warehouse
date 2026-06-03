@@ -35,26 +35,27 @@
           <div class="body" role="main">
             
   <section id="git">
-<h1><a class="toc-backref" href="#id8" role="doc-backlink">git 用法教程</a><a class="headerlink" href="#git" title="链接到此标题。">¶</a></h1>
+<h1><a class="toc-backref" href="#id9" role="doc-backlink">git 用法教程</a><a class="headerlink" href="#git" title="链接到此标题。">¶</a></h1>
 <nav class="contents" id="id1">
 <p class="topic-title">目录</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#git" id="id8">git 用法教程</a></p>
+<li><p><a class="reference internal" href="#git" id="id9">git 用法教程</a></p>
 <ul>
-<li><p><a class="reference internal" href="#id2" id="id9">在本地和服务器间进行传输</a></p></li>
-<li><p><a class="reference internal" href="#id3" id="id10">不改变提交信息的情况下, 重新提交</a></p></li>
-<li><p><a class="reference internal" href="#id4" id="id11">取消跟踪文件</a></p></li>
-<li><p><a class="reference internal" href="#id5" id="id12">字符编码修改</a></p></li>
-<li><p><a class="reference internal" href="#id6" id="id13">查看不同提交、分支以及暂存区和工作区的差异</a></p></li>
-<li><p><a class="reference internal" href="#id7" id="id14">仓库、分支管理</a></p></li>
-<li><p><a class="reference internal" href="#git-rebase" id="id15">让提交历史更简洁 git rebase</a></p></li>
-<li><p><a class="reference internal" href="#stash" id="id16">临时保存但不提交 - stash</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id10">在本地和服务器间进行传输</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id11">不改变提交信息的情况下, 重新提交</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id12">取消跟踪文件</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id13">字符编码修改</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id14">查看不同提交、分支以及暂存区和工作区的差异</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id15">仓库、分支管理</a></p></li>
+<li><p><a class="reference internal" href="#git-rebase" id="id16">让提交历史更简洁 git rebase</a></p></li>
+<li><p><a class="reference internal" href="#stash" id="id17">临时保存但不提交 - stash</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id18">设置远程仓库</a></p></li>
 </ul>
 </li>
 </ul>
 </nav>
 <section id="id2">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink">在本地和服务器间进行传输</a><a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">在本地和服务器间进行传输</a><a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
 <ol class="arabic">
 <li><p>首先建立裸仓库: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span> <span class="pre">--bare</span> <span class="pre">test.git</span></code></p></li>
 <li><p>然后建立本地仓库: <code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">my_repo;</span> <span class="pre">cd</span> <span class="pre">my_repo;</span> <span class="pre">git</span> <span class="pre">init</span></code></p></li>
@@ -75,20 +76,20 @@
 <p>如果需要在 push 到服务器后, push 的文件自动出现在某个目录, 可以使用 git 的 hook 功能:</p>
 </section>
 <section id="id3">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink">不改变提交信息的情况下, 重新提交</a><a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">不改变提交信息的情况下, 重新提交</a><a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
 <p>有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。 此时，可以运行带有 --amend 选项的提交命令来重新提交:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit --amend
 </pre></div>
 </div>
 </section>
 <section id="id4">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink">取消跟踪文件</a><a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">取消跟踪文件</a><a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h2>
 <blockquote>
 <div><p>git rm &lt;file_name&gt;</p>
 </div></blockquote>
 </section>
 <section id="id5">
-<h2><a class="toc-backref" href="#id12" role="doc-backlink">字符编码修改</a><a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">字符编码修改</a><a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
 <p>修改编码为 utf-8 (避免在 windows 下中文乱码):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global core.quotepath false          # 显示 status 编码
 $ git config --global gui.encoding utf-8            # 图形界面编码
@@ -100,7 +101,7 @@ $ export LESSCHARSET=utf-8
 </div>
 </section>
 <section id="id6">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink">查看不同提交、分支以及暂存区和工作区的差异</a><a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h2>
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">查看不同提交、分支以及暂存区和工作区的差异</a><a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h2>
 <p>都是用 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code>:</p>
 <p>查看当前工作区和暂存区的不同:
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span>&#160; <span class="pre">[--]</span> <span class="pre">[&lt;path&gt;</span> <span class="pre">...]</span></code></p>
@@ -119,7 +120,7 @@ $ export LESSCHARSET=utf-8
 </div></blockquote>
 </section>
 <section id="id7">
-<h2><a class="toc-backref" href="#id14" role="doc-backlink">仓库、分支管理</a><a class="headerlink" href="#id7" title="链接到此标题。">¶</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">仓库、分支管理</a><a class="headerlink" href="#id7" title="链接到此标题。">¶</a></h2>
 <dl>
 <dt>添加远程仓库:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">add</span> <span class="pre">&lt;name&gt;</span> <span class="pre">&lt;url&gt;</span></code>.
 若是服务器, <code class="docutils literal notranslate"><span class="pre">&lt;url&gt;</span></code> 可能需要使用 <code class="docutils literal notranslate"><span class="pre">username&#64;servername:path/to/repo.git</span></code> 的格式.</p>
@@ -141,15 +142,28 @@ $ export LESSCHARSET=utf-8
 <p>git pull:</p>
 </section>
 <section id="git-rebase">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">让提交历史更简洁 git rebase</a><a class="headerlink" href="#git-rebase" title="链接到此标题。">¶</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">让提交历史更简洁 git rebase</a><a class="headerlink" href="#git-rebase" title="链接到此标题。">¶</a></h2>
 <p>假设当前在 branch-1 上，要把 branch-1 上的修改合并到 master 上，但是不想把</p>
 </section>
 <section id="stash">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">临时保存但不提交 - stash</a><a class="headerlink" href="#stash" title="链接到此标题。">¶</a></h2>
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">临时保存但不提交 - stash</a><a class="headerlink" href="#stash" title="链接到此标题。">¶</a></h2>
 <dl class="simple">
 <dt>暂存: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">stash</span></code></dt><dd><p>这会将工作目录、已经被 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> 到暂存区的修改贮存到一个栈中。</p>
 </dd>
 </dl>
+</section>
+<section id="id8">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">设置远程仓库</a><a class="headerlink" href="#id8" title="链接到此标题。">¶</a></h2>
+<p><a class="reference external" href="https://docs.github.com/en/get-started/git-basics/managing-remote-repositories#adding-a-remote-repository">https://docs.github.com/en/get-started/git-basics/managing-remote-repositories#adding-a-remote-repository</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>https://github.com/OWNER/REPOSITORY.git
+<span class="c1"># Set a new remote</span>
+
+$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
+<span class="c1"># Verify new remote</span>
+&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/OWNER/REPOSITORY.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+&gt;<span class="w"> </span>origin<span class="w">  </span>https://github.com/OWNER/REPOSITORY.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
 </section>
 </section>
 
